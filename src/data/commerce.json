@@ -1,0 +1,414 @@
+{
+    "commerce_students_careers": [
+        {
+            "career_name": "Chartered Accountant (CA)",
+            "category": "Accounting & Finance",
+            "eligibility": "12th Commerce / Any Stream",
+            "degree_required": "Yes (CA Course)",
+            "scope_in_india": "Very High",
+            "work_areas": [
+                "Audit Firms",
+                "Corporate Finance",
+                "Tax Consultancy",
+                "Private Practice"
+            ],
+            "salary_range_inr": {
+                "entry_level": "6 – 10 LPA",
+                "mid_level": "15 – 30 LPA",
+                "high_level": "50+ LPA"
+            }
+        },
+        {
+            "career_name": "Cost & Management Accountant (CMA)",
+            "category": "Accounting & Finance",
+            "eligibility": "12th Commerce",
+            "degree_required": "Yes (CMA Course)",
+            "scope_in_india": "High",
+            "work_areas": [
+                "Manufacturing Firms",
+                "Cost Control",
+                "Finance Departments"
+            ],
+            "salary_range_inr": {
+                "entry_level": "5 – 8 LPA",
+                "mid_level": "10 – 18 LPA",
+                "high_level": "30+ LPA"
+            }
+        },
+        {
+            "career_name": "Company Secretary (CS)",
+            "category": "Corporate Law & Governance",
+            "eligibility": "12th Commerce / Any Stream",
+            "degree_required": "Yes (CS Course)",
+            "scope_in_india": "High",
+            "work_areas": [
+                "Corporate Compliance",
+                "Legal Advisory",
+                "Company Law"
+            ],
+            "salary_range_inr": {
+                "entry_level": "5 – 8 LPA",
+                "mid_level": "12 – 20 LPA",
+                "high_level": "30+ LPA"
+            }
+        },
+        {
+            "career_name": "Business Analyst",
+            "category": "Business & Analytics",
+            "eligibility": "12th Commerce / Any with Maths",
+            "degree_required": "Optional",
+            "scope_in_india": "High",
+            "work_areas": [
+                "IT Companies",
+                "Consulting Firms",
+                "Business Strategy"
+            ],
+            "salary_range_inr": {
+                "entry_level": "4 – 7 LPA",
+                "mid_level": "10 – 18 LPA",
+                "high_level": "25+ LPA"
+            }
+        },
+        {
+            "career_name": "Financial Analyst",
+            "category": "Finance & Investment",
+            "eligibility": "12th Commerce",
+            "degree_required": "Optional",
+            "scope_in_india": "High",
+            "work_areas": [
+                "Investment Firms",
+                "Banks",
+                "Corporate Finance"
+            ],
+            "salary_range_inr": {
+                "entry_level": "4 – 6 LPA",
+                "mid_level": "8 – 15 LPA",
+                "high_level": "25+ LPA"
+            }
+        },
+        {
+            "career_name": "Banking Officer",
+            "category": "Banking & Insurance",
+            "eligibility": "12th Commerce / Any Stream",
+            "degree_required": "Yes (via Exams)",
+            "scope_in_india": "High",
+            "work_areas": [
+                "Public Sector Banks",
+                "Private Banks",
+                "Financial Services"
+            ],
+            "salary_range_inr": {
+                "entry_level": "4 – 6 LPA",
+                "mid_level": "8 – 12 LPA",
+                "high_level": "18+ LPA"
+            }
+        },
+        {
+            "career_name": "Insurance Officer",
+            "category": "Banking & Insurance",
+            "eligibility": "12th Commerce / Any Stream",
+            "degree_required": "Yes (via Exams)",
+            "scope_in_india": "Medium-High",
+            "work_areas": [
+                "Insurance Companies",
+                "Risk Management",
+                "Claims Department"
+            ],
+            "salary_range_inr": {
+                "entry_level": "3 – 5 LPA",
+                "mid_level": "6 – 10 LPA",
+                "high_level": "15+ LPA"
+            }
+        },
+        {
+            "career_name": "Digital Marketer",
+            "category": "Marketing & Sales",
+            "eligibility": "12th Any Stream",
+            "degree_required": "No",
+            "scope_in_india": "Very High",
+            "work_areas": [
+                "Digital Agencies",
+                "Startups",
+                "Freelancing",
+                "E-commerce"
+            ],
+            "salary_range_inr": {
+                "entry_level": "3 – 5 LPA",
+                "mid_level": "7 – 12 LPA",
+                "high_level": "25+ LPA"
+            }
+        },
+        {
+            "career_name": "Human Resource Manager",
+            "category": "Management & HR",
+            "eligibility": "12th Commerce / Any Stream",
+            "degree_required": "Yes",
+            "scope_in_india": "Medium-High",
+            "work_areas": [
+                "Corporate HR",
+                "Recruitment Firms",
+                "People Operations"
+            ],
+            "salary_range_inr": {
+                "entry_level": "3 – 5 LPA",
+                "mid_level": "7 – 12 LPA",
+                "high_level": "20+ LPA"
+            }
+        },
+        {
+            "career_name": "Entrepreneur / Startup Founder",
+            "category": "Entrepreneurship",
+            "eligibility": "12th Any Stream",
+            "degree_required": "No",
+            "scope_in_india": "High",
+            "work_areas": [
+                "Startups",
+                "Own Business",
+                "Family Business"
+            ],
+            "salary_range_inr": {
+                "entry_level": "Variable",
+                "mid_level": "Variable",
+                "high_level": "Unlimited"
+            }
+        },
+        {
+            "career_name": "Stock Market Trader",
+            "category": "Finance & Trading",
+            "eligibility": "12th Any Stream",
+            "degree_required": "No",
+            "scope_in_india": "High",
+            "work_areas": [
+                "Equity Markets",
+                "Derivatives",
+                "Proprietary Trading"
+            ],
+            "salary_range_inr": {
+                "entry_level": "2 – 5 LPA",
+                "mid_level": "6 – 15 LPA",
+                "high_level": "Unlimited"
+            }
+        },
+        {
+            "career_name": "Economist",
+            "category": "Economics & Policy",
+            "eligibility": "12th Commerce / Maths",
+            "degree_required": "Yes",
+            "scope_in_india": "Medium",
+            "work_areas": [
+                "Research Institutions",
+                "Government",
+                "Policy Think Tanks"
+            ],
+            "salary_range_inr": {
+                "entry_level": "5 – 8 LPA",
+                "mid_level": "10 – 18 LPA",
+                "high_level": "30+ LPA"
+            }
+        },
+        {
+            "career_name": "Supply Chain Manager",
+            "category": "Operations & Logistics",
+            "eligibility": "12th Commerce / Any Stream",
+            "degree_required": "Optional",
+            "scope_in_india": "High",
+            "work_areas": [
+                "Manufacturing",
+                "E-commerce",
+                "Logistics Companies"
+            ],
+            "salary_range_inr": {
+                "entry_level": "4 – 6 LPA",
+                "mid_level": "8 – 15 LPA",
+                "high_level": "25+ LPA"
+            }
+        },
+        {
+            "career_name": "Risk Analyst",
+            "category": "Finance & Risk",
+            "eligibility": "12th Commerce / Maths",
+            "degree_required": "Optional",
+            "scope_in_india": "High",
+            "work_areas": [
+                "Banks",
+                "Insurance Firms",
+                "Investment Companies"
+            ],
+            "salary_range_inr": {
+                "entry_level": "4 – 7 LPA",
+                "mid_level": "10 – 18 LPA",
+                "high_level": "30+ LPA"
+            }
+        },
+        {
+            "career_name": "Actuary",
+            "category": "Statistics & Finance",
+            "eligibility": "12th Commerce / Maths",
+            "degree_required": "Yes (Actuarial Exams)",
+            "scope_in_india": "Very High",
+            "work_areas": [
+                "Insurance Companies",
+                "Risk Consulting",
+                "Financial Firms"
+            ],
+            "salary_range_inr": {
+                "entry_level": "6 – 10 LPA",
+                "mid_level": "15 – 30 LPA",
+                "high_level": "50+ LPA"
+            }
+        },
+        {
+            "career_name": "E-commerce Manager",
+            "category": "Digital Business",
+            "eligibility": "12th Any Stream",
+            "degree_required": "Optional",
+            "scope_in_india": "Very High",
+            "work_areas": [
+                "Online Marketplaces",
+                "D2C Brands",
+                "Retail Companies"
+            ],
+            "salary_range_inr": {
+                "entry_level": "4 – 6 LPA",
+                "mid_level": "8 – 15 LPA",
+                "high_level": "25+ LPA"
+            }
+        },
+        {
+            "career_name": "GST Practitioner",
+            "category": "Taxation",
+            "eligibility": "12th Commerce",
+            "degree_required": "Yes (Certification)",
+            "scope_in_india": "High",
+            "work_areas": [
+                "Tax Consultancy",
+                "Small Businesses",
+                "CA Firms"
+            ],
+            "salary_range_inr": {
+                "entry_level": "3 – 5 LPA",
+                "mid_level": "6 – 10 LPA",
+                "high_level": "20+ LPA"
+            }
+        },
+        {
+            "career_name": "Compliance Officer",
+            "category": "Corporate Compliance",
+            "eligibility": "12th Commerce / Any Stream",
+            "degree_required": "Yes",
+            "scope_in_india": "High",
+            "work_areas": [
+                "Corporates",
+                "Banks",
+                "Regulatory Bodies"
+            ],
+            "salary_range_inr": {
+                "entry_level": "4 – 6 LPA",
+                "mid_level": "8 – 14 LPA",
+                "high_level": "25+ LPA"
+            }
+        },
+        {
+            "career_name": "Wealth Manager",
+            "category": "Investment & Advisory",
+            "eligibility": "12th Commerce",
+            "degree_required": "Optional",
+            "scope_in_india": "High",
+            "work_areas": [
+                "Private Banks",
+                "Investment Firms",
+                "High Net-Worth Clients"
+            ],
+            "salary_range_inr": {
+                "entry_level": "4 – 7 LPA",
+                "mid_level": "10 – 20 LPA",
+                "high_level": "40+ LPA"
+            }
+        },
+        {
+            "career_name": "Franchise Business Consultant",
+            "category": "Business Advisory",
+            "eligibility": "12th Any Stream",
+            "degree_required": "No",
+            "scope_in_india": "Medium-High",
+            "work_areas": [
+                "Retail Brands",
+                "Food Chains",
+                "Business Consulting"
+            ],
+            "salary_range_inr": {
+                "entry_level": "3 – 5 LPA",
+                "mid_level": "7 – 12 LPA",
+                "high_level": "25+ LPA"
+            }
+        },
+        {
+            "career_name": "Corporate Trainer",
+            "category": "Learning & Development",
+            "eligibility": "12th Any Stream",
+            "degree_required": "Optional",
+            "scope_in_india": "High",
+            "work_areas": [
+                "Corporates",
+                "EdTech Platforms",
+                "Training Firms"
+            ],
+            "salary_range_inr": {
+                "entry_level": "3 – 5 LPA",
+                "mid_level": "6 – 12 LPA",
+                "high_level": "30+ LPA"
+            }
+        },
+        {
+            "career_name": "Business Process Analyst",
+            "category": "Process Optimization",
+            "eligibility": "12th Commerce / Any Stream",
+            "degree_required": "Optional",
+            "scope_in_india": "High",
+            "work_areas": [
+                "IT Services",
+                "Consulting Firms",
+                "Corporates"
+            ],
+            "salary_range_inr": {
+                "entry_level": "4 – 6 LPA",
+                "mid_level": "8 – 14 LPA",
+                "high_level": "25+ LPA"
+            }
+        },
+        {
+            "career_name": "International Trade Specialist",
+            "category": "Global Business",
+            "eligibility": "12th Commerce",
+            "degree_required": "Yes",
+            "scope_in_india": "Medium-High",
+            "work_areas": [
+                "Export-Import Firms",
+                "MNCs",
+                "Logistics Companies"
+            ],
+            "salary_range_inr": {
+                "entry_level": "4 – 6 LPA",
+                "mid_level": "8 – 14 LPA",
+                "high_level": "25+ LPA"
+            }
+        },
+        {
+            "career_name": "Business Content Strategist",
+            "category": "Content & Media",
+            "eligibility": "12th Any Stream",
+            "degree_required": "No",
+            "scope_in_india": "High",
+            "work_areas": [
+                "Startups",
+                "Digital Media",
+                "Personal Brands"
+            ],
+            "salary_range_inr": {
+                "entry_level": "3 – 5 LPA",
+                "mid_level": "7 – 12 LPA",
+                "high_level": "30+ LPA"
+            }
+        }
+    ]
+}
