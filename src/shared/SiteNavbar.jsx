@@ -29,6 +29,7 @@ const SiteNavbar = () => {
     () => [
       { label: 'Home', to: '/' },
       { label: 'Career Paths', to: '/career-paths' },
+      { label: 'Concept Hub', to: '/concept-hub' },
       { label: 'Career Advice', to: '/#career-advice' },
       { label: 'Resources', to: '/#resources' },
       { label: 'About', to: '/#about' },
