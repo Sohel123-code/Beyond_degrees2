@@ -12,11 +12,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 
+// In Vercel, the directory structure might change. we use process.cwd() to get the project root.
 const DATA_PATH = path.join(process.cwd(), 'src/data');
 
 // Helper to extract YouTube ID from various link formats
@@ -108,7 +108,6 @@ const getMergedData = () => {
                         const cat = raw.learnConcepts_remaining.find(c => c.category.includes(meta.title.split(' ')[0]));
                         if (cat) videoList = cat.sources;
                     } else if (typeof raw === 'object' && !Array.isArray(raw)) {
-                        // Flattens all arrays in the object (supports money.json categorization)
                         Object.values(raw).forEach(arr => {
                             if (Array.isArray(arr)) {
                                 videoList = [...videoList, ...arr];
@@ -151,9 +150,7 @@ app.get('/api/concepts', (req, res) => {
 app.get('/api/concepts/:categoryId', (req, res) => {
     const { categoryId } = req.params;
     const data = getMergedData();
-
     const category = data.find(c => c.id === categoryId);
-
     if (category) {
         res.json(category);
     } else {
@@ -161,7 +158,6 @@ app.get('/api/concepts/:categoryId', (req, res) => {
     }
 });
 
-// GradBuddy Bot Implementation
 const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
 
 app.post('/api/gradbuddy', async (req, res) => {
@@ -169,11 +165,10 @@ app.post('/api/gradbuddy', async (req, res) => {
     const GROQ_API_KEY = process.env.GROQ_API_KEY;
 
     if (!GROQ_API_KEY || GROQ_API_KEY === 'your_groq_api_key_here') {
-        return res.status(500).json({ error: 'Groq API key not configured. Please add it to the .env file.' });
+        return res.status(500).json({ error: 'Groq API key not configured.' });
     }
 
     try {
-        // Load some data for context
         const dataFiles = [
             'buisness.json', 'arts.json', 'career.json', 'career1.json',
             'commerce.json', 'data.json', 'life.json', 'money.json', 'non-degree.json'
@@ -184,7 +179,6 @@ app.post('/api/gradbuddy', async (req, res) => {
             const filePath = path.join(DATA_PATH, file);
             if (fs.existsSync(filePath)) {
                 const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-                // Just take a representative sample if it's too large
                 if (Array.isArray(content)) {
                     contextData[file] = content.slice(0, 5).map(i => i.title || i.career_name || i.name);
                 } else if (content.streams) {
@@ -197,19 +191,10 @@ app.post('/api/gradbuddy', async (req, res) => {
 
         const systemPrompt = `You are "GradBuddy", a helpful career guidance chatbot for the "Beyond Degrees" platform. 
 Your goal is to help students explore career paths, skills, and life skills.
-You have access to information about various streams like Science, Commerce, Arts, Business, and more.
 Refer to these categories and topics from our data: ${JSON.stringify(contextData)}.
-Keep your responses encouraging, concise, informative, and detailed. 
-Provide thorough textual explanations for all career-related queries.
-
-When suggesting career paths:
-1. ONLY provide a Mermaid flowchart if the user explicitly asks for one (e.g., "show me a roadmap", "draw a flowchart", "visualize this").
-2. If requested, use 'graph TD' (Top-Down).
-3. ALWAYS wrap node labels in double quotes and square brackets: A["Label"].
-4. Keep IDENTIFIERS (like A, B, C) as single letters or simple words.
-5. Ensure the syntax is valid.
-Always start by welcoming the user if it's the beginning of the conversation.
-Current conversation context: ${JSON.stringify(history)}`;
+Keep your responses encouraging, detailed and encouraging.
+ONLY provide a Mermaid flowchart if requested (e.g., "roadmap", "flowchart").
+Use 'graph TD' and wrap labels in: A["Label"].`;
 
         const response = await axios.post(GROQ_API_URL, {
             model: 'llama-3.3-70b-versatile',
@@ -222,20 +207,17 @@ Current conversation context: ${JSON.stringify(history)}`;
             max_tokens: 1024
         }, {
             headers: {
-                'Authorization': `Bearer ${GROQ_API_KEY} `,
+                'Authorization': `Bearer ${GROQ_API_KEY}`,
                 'Content-Type': 'application/json'
             }
         });
 
-        const botMessage = response.data.choices[0].message.content;
-        res.json({ reply: botMessage });
-
+        res.json({ reply: response.data.choices[0].message.content });
     } catch (error) {
-        console.error('Groq API Error:', error.response?.data || error.message);
-        res.status(500).json({ error: 'Failed to get response from GradBuddy. Please try again later.' });
+        console.error('Groq Error:', error.response?.data || error.message);
+        res.status(500).json({ error: 'Failed to get response.' });
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+// Export the app for Vercel
+export default app;

@@ -10,7 +10,7 @@ const ConceptHub = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/concepts');
+                const response = await fetch('/api/concepts');
                 if (response.ok) {
                     const data = await response.json();
                     setCategories(data);

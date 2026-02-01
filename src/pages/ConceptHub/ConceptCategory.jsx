@@ -16,7 +16,7 @@ const ConceptCategory = () => {
         const fetchCategory = async () => {
             try {
                 // Try fetching from Node.js backend first
-                const response = await fetch(`http://localhost:5000/api/concepts/${categoryId}`);
+                const response = await fetch(`/api/concepts/${categoryId}`);
                 if (response.ok) {
                     const data = await response.json();
                     setCategoryData(data);
