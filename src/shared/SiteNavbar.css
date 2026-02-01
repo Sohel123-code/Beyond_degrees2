@@ -108,10 +108,15 @@
 .navMobile {
   display: none;
   border-top: 1px solid rgba(15, 23, 42, 0.06);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s, transform 0.3s;
 }
 
 .navMobile--open {
   display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .navMobile__inner {

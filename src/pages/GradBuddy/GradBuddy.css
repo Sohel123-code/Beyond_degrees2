@@ -268,22 +268,53 @@
 
 @media (max-width: 768px) {
     .gradbuddy-header {
-        padding: 10px 15px;
+        padding: 12px 15px;
     }
 
     .header-left {
-        gap: 10px;
+        gap: 12px;
+    }
+
+    .back-btn {
+        padding: 6px 12px;
     }
 
     .back-btn span {
         display: none;
     }
 
+    .bot-info h3 {
+        font-size: 0.95rem;
+    }
+
     .chat-window {
-        padding: 20px 15px;
+        padding: 15px 12px;
+        gap: 15px;
     }
 
     .message-bubble {
-        max-width: 92%;
+        max-width: 95%;
+    }
+
+    .message-content {
+        padding: 10px 15px;
+        font-size: 0.95rem;
+    }
+
+    .chat-input-area {
+        padding: 15px;
+    }
+
+    .input-wrapper {
+        padding: 5px 5px 5px 15px;
+    }
+
+    .input-wrapper input {
+        font-size: 0.9rem;
+    }
+
+    .input-wrapper button {
+        width: 40px;
+        height: 40px;
     }
 }
