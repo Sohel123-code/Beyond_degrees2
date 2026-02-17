@@ -1,0 +1,259 @@
+{
+    "no_degree_high_earning": {
+        "freelance_software_developer": {
+            "primary_path": [
+                "Learn one programming language",
+                "Master a tech stack",
+                "Build strong portfolio",
+                "High-paying freelance contracts"
+            ],
+            "alternate_path": [
+                "Bootcamp training",
+                "Remote startup contracts"
+            ],
+            "skill_based_path": [
+                "Open-source work",
+                "Upwork / Toptal",
+                "Long-term retainers"
+            ]
+        },
+        "web3_blockchain_developer": {
+            "primary_path": [
+                "Learn blockchain basics",
+                "Smart contract development",
+                "Build Web3 projects",
+                "Crypto startup roles"
+            ],
+            "alternate_path": [
+                "DeFi projects",
+                "DAO participation"
+            ],
+            "skill_based_path": [
+                "Freelance smart contracts",
+                "Bug bounties",
+                "Token-based earnings"
+            ]
+        },
+        "ai_tools_builder": {
+            "primary_path": [
+                "Learn AI APIs",
+                "Build micro AI tools",
+                "Launch SaaS products",
+                "Subscription income"
+            ],
+            "alternate_path": [
+                "No-code AI tools",
+                "AI automation services"
+            ],
+            "skill_based_path": [
+                "Client automation",
+                "Custom AI bots",
+                "Monthly retainers"
+            ]
+        },
+        "cloud_devops_freelancer": {
+            "primary_path": [
+                "Learn Linux & cloud",
+                "DevOps tools mastery",
+                "Deploy production systems",
+                "High-paying DevOps contracts"
+            ],
+            "alternate_path": [
+                "Cloud support roles",
+                "Remote infrastructure jobs"
+            ],
+            "skill_based_path": [
+                "Cloud consulting",
+                "SaaS maintenance",
+                "Retainer clients"
+            ]
+        },
+        "ethical_hacker": {
+            "primary_path": [
+                "Learn networking",
+                "Security fundamentals",
+                "Bug bounty platforms",
+                "High reward payouts"
+            ],
+            "alternate_path": [
+                "Security analyst roles",
+                "Pentesting firms"
+            ],
+            "skill_based_path": [
+                "Bug bounty hunting",
+                "Private vulnerability programs",
+                "Security consulting"
+            ]
+        },
+        "digital_marketing_agency_owner": {
+            "primary_path": [
+                "Learn digital marketing",
+                "Client acquisition",
+                "Build marketing agency",
+                "Scalable monthly revenue"
+            ],
+            "alternate_path": [
+                "Freelance marketing",
+                "Small business retainers"
+            ],
+            "skill_based_path": [
+                "SEO & Ads specialization",
+                "White-label services",
+                "International clients"
+            ]
+        },
+        "high_ticket_sales_closer": {
+            "primary_path": [
+                "Sales psychology",
+                "High-ticket product sales",
+                "Commission-based roles",
+                "Six-figure earnings"
+            ],
+            "alternate_path": [
+                "SaaS sales",
+                "Remote sales teams"
+            ],
+            "skill_based_path": [
+                "Closing coaching",
+                "Personal brand sales",
+                "Revenue sharing"
+            ]
+        },
+        "youtube_creator": {
+            "primary_path": [
+                "Choose profitable niche",
+                "Consistent content creation",
+                "Audience growth",
+                "Ads + sponsorship revenue"
+            ],
+            "alternate_path": [
+                "Podcasting",
+                "Short-form content"
+            ],
+            "skill_based_path": [
+                "Courses",
+                "Affiliate marketing",
+                "Brand deals"
+            ]
+        },
+        "online_course_creator": {
+            "primary_path": [
+                "Choose in-demand skill",
+                "Create structured course",
+                "Launch on platforms",
+                "Passive income"
+            ],
+            "alternate_path": [
+                "Live workshops",
+                "Corporate training"
+            ],
+            "skill_based_path": [
+                "Personal website",
+                "Community subscriptions",
+                "Upsells"
+            ]
+        },
+        "copywriter": {
+            "primary_path": [
+                "Learn copywriting fundamentals",
+                "Practice sales writing",
+                "Client acquisition",
+                "High-paying copy projects"
+            ],
+            "alternate_path": [
+                "Content writing",
+                "Marketing roles"
+            ],
+            "skill_based_path": [
+                "Email marketing",
+                "Sales funnels",
+                "Performance-based pay"
+            ]
+        },
+        "ui_ux_freelancer": {
+            "primary_path": [
+                "Learn UI/UX",
+                "Build premium portfolio",
+                "Startup clients",
+                "High-paying design work"
+            ],
+            "alternate_path": [
+                "Product design roles",
+                "Agency contracts"
+            ],
+            "skill_based_path": [
+                "Design systems",
+                "SaaS UX consulting",
+                "Monthly retainers"
+            ]
+        },
+        "trader": {
+            "primary_path": [
+                "Learn market fundamentals",
+                "Trading strategies",
+                "Capital management",
+                "Professional trading"
+            ],
+            "alternate_path": [
+                "Prop trading firms",
+                "Long-term investing"
+            ],
+            "skill_based_path": [
+                "Derivatives trading",
+                "Crypto trading",
+                "Algorithmic trading"
+            ]
+        },
+        "drone_business_owner": {
+            "primary_path": [
+                "Drone pilot certification",
+                "Commercial projects",
+                "Drone services company",
+                "High-value contracts"
+            ],
+            "alternate_path": [
+                "Surveying & mapping",
+                "Industrial inspections"
+            ],
+            "skill_based_path": [
+                "Real estate shoots",
+                "Agriculture drones",
+                "Government tenders"
+            ]
+        },
+        "ecommerce_brand_owner": {
+            "primary_path": [
+                "Product research",
+                "Online store setup",
+                "Marketing & scaling",
+                "Brand revenue"
+            ],
+            "alternate_path": [
+                "Dropshipping",
+                "Marketplace selling"
+            ],
+            "skill_based_path": [
+                "Private label products",
+                "International markets",
+                "Subscription models"
+            ]
+        },
+        "automation_consultant": {
+            "primary_path": [
+                "Learn workflow automation",
+                "Business process optimization",
+                "Client automation projects",
+                "High consulting fees"
+            ],
+            "alternate_path": [
+                "No-code tools",
+                "SaaS integrations"
+            ],
+            "skill_based_path": [
+                "Zapier / Make",
+                "AI workflow automation",
+                "Monthly retainers"
+            ]
+        }
+    }
+}

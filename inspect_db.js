@@ -18,24 +18,33 @@ console.log('Connecting to:', process.env.SUPABASE_URL);
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
 const inspect = async () => {
-    console.log('Fetching one user...');
+    console.log('Fetching one user to check schema...');
     const { data, error } = await supabase
         .from('USERS')
         .select('*')
         .limit(1);
 
     if (error) {
-        console.error('Error:', error);
+        console.error('Error fetching user:', error);
         return;
     }
 
     if (data && data.length > 0) {
-        console.log('User found. Column keys:', Object.keys(data[0]));
-        console.log('Sample data:', data[0]);
+        const user = data[0];
+        const keys = Object.keys(user);
+        console.log('User found. Keys:', keys);
+
+        const requiredColumns = ['branch', 'year', 'domain', 'salary', 'hobby'];
+        const missing = requiredColumns.filter(col => !keys.includes(col));
+
+        if (missing.length > 0) {
+            console.error('❌ MISSING COLUMNS:', missing.join(', '));
+            console.log('Please run server/add_survey_columns.sql in Supabase SQL Editor.');
+        } else {
+            console.log('✅ All survey columns are present.');
+        }
     } else {
-        console.log('No users found. Creating a dummy user to check schema if possible, or just listing empty result.');
-        // If no users, we might need to try to insert with a known column to see what happens, or just ask user.
-        // But usually there are users from previous tests.
+        console.log('No users found. Cannot verify schema structure fully from data.');
     }
 };
 

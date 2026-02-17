@@ -1,0 +1,170 @@
+[
+    {
+        "id": "content-creator",
+        "career_name": "Content Creator / YouTuber",
+        "category": "Media & Entertainment",
+        "scope_in_india": "High",
+        "degree_required": "None / Skill-based",
+        "eligibility": "Creativity & Consistency",
+        "salary_range_inr": {
+            "entry_level": "3 - 5 LPA",
+            "mid_level": "8 - 15 LPA",
+            "high_level": "25+ LPA"
+        },
+        "overview": [
+            "Creating engaging video or written content for platforms like YouTube, Instagram, and unauthorized platforms.",
+            "Monetization through ads, sponsorships, and merchandise."
+        ],
+        "who_should_choose_this": [
+            "People who love storytelling and editing.",
+            "Those comfortable in front of a camera."
+        ],
+        "skills_required": [
+            "Video Editing",
+            "Storytelling",
+            "Social Media Marketing"
+        ],
+        "learning_paths": [
+            "Self-taught (YouTube)",
+            "Online Courses"
+        ],
+        "career_roadmap": [
+            "Start Channel -> Gain Subscribers -> Monetize -> Brand Deals"
+        ],
+        "work_areas": [
+            "Social Media",
+            "Digital Marketing Agencies",
+            "Freelance"
+        ],
+        "pros_and_cons": {
+            "pros": [
+                "Creative freedom",
+                "Unlimited earning potential"
+            ],
+            "cons": [
+                "Inconsistent income initially",
+                "High competition"
+            ]
+        },
+        "how_to_start": [
+            "Pick a niche",
+            "Start creating content consistent"
+        ],
+        "resources": [
+            "YouTube Creator Academy",
+            "Skillshare"
+        ]
+    },
+    {
+        "id": "photographer",
+        "career_name": "Professional Photographer",
+        "category": "Arts",
+        "scope_in_india": "Moderate to High",
+        "degree_required": "Portfolio / Diploma",
+        "eligibility": "Eye for detail",
+        "salary_range_inr": {
+            "entry_level": "3 - 4 LPA",
+            "mid_level": "5 - 10 LPA",
+            "high_level": "15+ LPA"
+        },
+        "overview": [
+            "Capturing high-quality images for events, products, fashion, or wildlife.",
+            "Editing and retouching photos."
+        ],
+        "who_should_choose_this": [
+            "Visual thinkers.",
+            "People who love travel and observation."
+        ],
+        "skills_required": [
+            "Lighting",
+            "Editing (Photoshop/Lightroom)",
+            "Composition"
+        ],
+        "learning_paths": [
+            "Photography Workshops",
+            "Diploma in Photography"
+        ],
+        "career_roadmap": [
+            "Assistant Photographer -> Freelancer -> Studio Owner"
+        ],
+        "work_areas": [
+            "Weddings",
+            "Fashion Industry",
+            "Journalism"
+        ],
+        "pros_and_cons": {
+            "pros": [
+                "Travel opportunities",
+                "Creative expression"
+            ],
+            "cons": [
+                "Expensive equipment",
+                "Irregular hours"
+            ]
+        },
+        "how_to_start": [
+            "Buy a basic DSLR",
+            "Build a portfolio"
+        ],
+        "resources": [
+            "Udemy Photography Courses",
+            "Fstoppers"
+        ]
+    },
+    {
+        "id": "ethical-hacker",
+        "career_name": "Ethical Hacker",
+        "category": "Tech / Security",
+        "scope_in_india": "Very High",
+        "degree_required": "Certifications (CEH, OSCP)",
+        "eligibility": "Programming & Networking Knowledge",
+        "salary_range_inr": {
+            "entry_level": "5 - 8 LPA",
+            "mid_level": "12 - 20 LPA",
+            "high_level": "30+ LPA"
+        },
+        "overview": [
+            "Identifying vulnerabilities in computer systems to improve security.",
+            "Conducting penetration testing."
+        ],
+        "who_should_choose_this": [
+            "Problem solvers.",
+            "Those interested in cybersecurity."
+        ],
+        "skills_required": [
+            "Networking",
+            "Linux",
+            "Scripting (Python/Bash)"
+        ],
+        "learning_paths": [
+            "Certifications (CEH, CISSP)",
+            "Bug Bounty Hunting"
+        ],
+        "career_roadmap": [
+            "Security Analyst -> Penetration Tester -> CISO"
+        ],
+        "work_areas": [
+            "Cybersecurity Firms",
+            "Government Agencies",
+            "Banking"
+        ],
+        "pros_and_cons": {
+            "pros": [
+                "High demand",
+                "Thrill of solving puzzles"
+            ],
+            "cons": [
+                "High pressure",
+                "Continuous learning needed"
+            ]
+        },
+        "how_to_start": [
+            "Learn Linux and Networking",
+            "Practice on HackTheBox"
+        ],
+        "resources": [
+            "Cybrary",
+            "OWASP"
+        ]
+    }
+]

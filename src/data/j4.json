@@ -1,0 +1,259 @@
+{
+    "arts": {
+        "lawyer": {
+            "primary_path": [
+                "Any stream after 10th",
+                "Clear CLAT",
+                "5-year LLB",
+                "Legal practice / law firm"
+            ],
+            "alternate_path": [
+                "Any bachelor’s degree",
+                "3-year LLB",
+                "Court practice"
+            ],
+            "skill_based_path": [
+                "Legal research skills",
+                "Paralegal certifications",
+                "Legal consultancy"
+            ]
+        },
+        "civil_servant": {
+            "primary_path": [
+                "Any stream",
+                "Bachelor’s degree",
+                "UPSC preparation",
+                "Clear civil services exam",
+                "IAS / IPS / IFS officer"
+            ],
+            "alternate_path": [
+                "State public service exams",
+                "Group A / B services"
+            ],
+            "skill_based_path": [
+                "Policy analysis",
+                "Think tanks",
+                "Public administration consulting"
+            ]
+        },
+        "journalist": {
+            "primary_path": [
+                "Arts / Any stream",
+                "Bachelor’s in Journalism",
+                "Media internships",
+                "Journalist role"
+            ],
+            "alternate_path": [
+                "Any degree",
+                "Content writing",
+                "Media freelancing"
+            ],
+            "skill_based_path": [
+                "Investigative writing",
+                "Blogging / YouTube",
+                "Independent journalism"
+            ]
+        },
+        "content_writer": {
+            "primary_path": [
+                "Arts / Any stream",
+                "Strong language skills",
+                "Content writing roles",
+                "Senior content strategist"
+            ],
+            "alternate_path": [
+                "Journalism background",
+                "Marketing content roles"
+            ],
+            "skill_based_path": [
+                "Freelance writing",
+                "SEO writing",
+                "Personal brand"
+            ]
+        },
+        "ux_writer": {
+            "primary_path": [
+                "Arts / Design background",
+                "UX writing fundamentals",
+                "Product documentation",
+                "UX writer role"
+            ],
+            "alternate_path": [
+                "Content writing",
+                "Product content transition"
+            ],
+            "skill_based_path": [
+                "Microcopy practice",
+                "UX portfolios",
+                "Freelance UX writing"
+            ]
+        },
+        "psychologist": {
+            "primary_path": [
+                "Arts / Science",
+                "Bachelor’s in Psychology",
+                "Master’s in Psychology",
+                "Licensed psychologist"
+            ],
+            "alternate_path": [
+                "Counseling diploma",
+                "NGO / school counselor"
+            ],
+            "skill_based_path": [
+                "Behavioral analysis",
+                "Wellness coaching",
+                "Private counseling"
+            ]
+        },
+        "sociologist": {
+            "primary_path": [
+                "Arts stream",
+                "Bachelor’s in Sociology",
+                "Master’s specialization",
+                "Research / academic roles"
+            ],
+            "alternate_path": [
+                "NGO fieldwork",
+                "Social research firms"
+            ],
+            "skill_based_path": [
+                "Survey analysis",
+                "Policy research",
+                "Consultancy roles"
+            ]
+        },
+        "political_analyst": {
+            "primary_path": [
+                "Arts / Political Science",
+                "Bachelor’s degree",
+                "Master’s in Public Policy",
+                "Political analyst role"
+            ],
+            "alternate_path": [
+                "Journalism",
+                "Media analysis roles"
+            ],
+            "skill_based_path": [
+                "Data-driven analysis",
+                "Think tanks",
+                "Consulting"
+            ]
+        },
+        "public_policy_expert": {
+            "primary_path": [
+                "Any stream",
+                "Bachelor’s degree",
+                "Master’s in Public Policy",
+                "Policy advisory roles"
+            ],
+            "alternate_path": [
+                "Civil services prep",
+                "Government research units"
+            ],
+            "skill_based_path": [
+                "Policy research",
+                "Impact analysis",
+                "NGO consulting"
+            ]
+        },
+        "teacher": {
+            "primary_path": [
+                "Any stream",
+                "Bachelor’s degree",
+                "B.Ed",
+                "Teaching profession"
+            ],
+            "alternate_path": [
+                "Subject specialization",
+                "Private tutoring"
+            ],
+            "skill_based_path": [
+                "Online teaching",
+                "Course creation",
+                "EdTech platforms"
+            ]
+        },
+        "professor": {
+            "primary_path": [
+                "Bachelor’s degree",
+                "Master’s degree",
+                "NET / PhD",
+                "College professor"
+            ],
+            "alternate_path": [
+                "Industry expert",
+                "Visiting faculty"
+            ],
+            "skill_based_path": [
+                "Research publications",
+                "Online education",
+                "Academic consulting"
+            ]
+        },
+        "graphic_designer": {
+            "primary_path": [
+                "Arts / Design",
+                "Design degree",
+                "Agency experience",
+                "Senior designer role"
+            ],
+            "alternate_path": [
+                "Self-taught design",
+                "Freelance projects"
+            ],
+            "skill_based_path": [
+                "Brand identity design",
+                "Freelancing",
+                "Design studio"
+            ]
+        },
+        "film_maker": {
+            "primary_path": [
+                "Arts background",
+                "Film school",
+                "Assistant director roles",
+                "Independent filmmaker"
+            ],
+            "alternate_path": [
+                "Theatre background",
+                "Media production houses"
+            ],
+            "skill_based_path": [
+                "Short films",
+                "YouTube production",
+                "OTT collaborations"
+            ]
+        },
+        "photographer": {
+            "primary_path": [
+                "Photography fundamentals",
+                "Professional training",
+                "Studio / media roles"
+            ],
+            "alternate_path": [
+                "Assistant photographer",
+                "Event photography"
+            ],
+            "skill_based_path": [
+                "Freelance photography",
+                "Stock photography",
+                "Personal brand"
+            ]
+        },
+        "social_worker": {
+            "primary_path": [
+                "Arts background",
+                "Bachelor’s in Social Work",
+                "Fieldwork",
+                "NGO leadership roles"
+            ],
+            "alternate_path": [
+                "Community outreach programs"
+            ],
+            "skill_based_path": [
+                "Policy advocacy",
+                "Social impact consulting"
+            ]
+        }
+    }
+}

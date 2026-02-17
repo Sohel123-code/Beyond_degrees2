@@ -1,0 +1,288 @@
+{
+    "science": {
+        "data_analyst": {
+            "primary_path": [
+                "Choose PCM / Any stream",
+                "Bachelor’s degree (CS / Stats / Math)",
+                "Learn statistics & data analysis",
+                "Master tools (Excel, SQL, Python)",
+                "Data Analyst job"
+            ],
+            "alternate_path": [
+                "Any bachelor’s degree",
+                "Online analytics certification",
+                "Entry-level data role",
+                "Career transition to Data Analyst"
+            ],
+            "skill_based_path": [
+                "Learn Excel, SQL, Python",
+                "Practice on real datasets",
+                "Build portfolio projects",
+                "Apply for analyst roles"
+            ]
+        },
+        "cybersecurity_analyst": {
+            "primary_path": [
+                "Choose PCM",
+                "B.Tech / B.Sc in CS or IT",
+                "Learn networking & security",
+                "Security certifications",
+                "Cybersecurity Analyst role"
+            ],
+            "alternate_path": [
+                "Any IT-related degree",
+                "System administration experience",
+                "Switch to security domain"
+            ],
+            "skill_based_path": [
+                "Learn networking basics",
+                "Practice ethical hacking",
+                "Bug bounty participation",
+                "Security analyst / freelancer"
+            ]
+        },
+        "cloud_engineer": {
+            "primary_path": [
+                "Choose PCM",
+                "B.Tech / B.Sc CS",
+                "Learn cloud fundamentals",
+                "AWS / Azure certification",
+                "Cloud Engineer job"
+            ],
+            "alternate_path": [
+                "IT diploma / Any degree",
+                "System admin experience",
+                "Transition to cloud roles"
+            ],
+            "skill_based_path": [
+                "Learn Linux & networking",
+                "Practice cloud labs",
+                "Deploy real projects",
+                "Remote cloud jobs"
+            ]
+        },
+        "ui_ux_designer": {
+            "primary_path": [
+                "Any stream",
+                "Bachelor’s degree",
+                "Design fundamentals",
+                "UI/UX specialization",
+                "UI/UX Designer job"
+            ],
+            "alternate_path": [
+                "Arts / Science background",
+                "Graphic design experience",
+                "Shift to UI/UX"
+            ],
+            "skill_based_path": [
+                "Learn Figma & design tools",
+                "Create design case studies",
+                "Build portfolio",
+                "Freelance / design roles"
+            ]
+        },
+        "game_developer": {
+            "primary_path": [
+                "Choose PCM",
+                "B.Tech CS / Game design degree",
+                "Learn game engines",
+                "Internships",
+                "Game Developer job"
+            ],
+            "alternate_path": [
+                "Any degree",
+                "Game design certification",
+                "Indie game development"
+            ],
+            "skill_based_path": [
+                "Learn Unity / Unreal",
+                "Build small games",
+                "Publish on platforms",
+                "Freelance / studio roles"
+            ]
+        },
+        "robotics_engineer": {
+            "primary_path": [
+                "Choose PCM",
+                "B.Tech in Robotics / Mechatronics",
+                "Hands-on robotics projects",
+                "Industry internship",
+                "Robotics Engineer role"
+            ],
+            "alternate_path": [
+                "Mechanical / Electrical degree",
+                "Robotics certification",
+                "Automation roles"
+            ],
+            "skill_based_path": [
+                "Learn electronics & coding",
+                "Build DIY robots",
+                "Participate in competitions",
+                "Startup / R&D roles"
+            ]
+        },
+        "scientist": {
+            "primary_path": [
+                "Choose PCM / PCB",
+                "B.Sc in core science",
+                "M.Sc specialization",
+                "PhD",
+                "Scientist role"
+            ],
+            "alternate_path": [
+                "B.Sc",
+                "M.Sc",
+                "Research assistant",
+                "Government labs"
+            ],
+            "skill_based_path": [
+                "Research tools & data analysis",
+                "Publications",
+                "Private R&D jobs"
+            ]
+        },
+        "researcher": {
+            "primary_path": [
+                "Bachelor’s degree",
+                "Master’s degree",
+                "Research projects",
+                "PhD",
+                "Academic / Industrial researcher"
+            ],
+            "alternate_path": [
+                "Master’s degree",
+                "Research assistant",
+                "Think tanks / labs"
+            ],
+            "skill_based_path": [
+                "Research methodology",
+                "Data analysis tools",
+                "Independent research roles"
+            ]
+        },
+        "allied_health_professional": {
+            "primary_path": [
+                "Choose PCB",
+                "Allied health degree",
+                "Clinical training",
+                "Hospital placement"
+            ],
+            "alternate_path": [
+                "PCB background",
+                "Diploma courses",
+                "Healthcare technician roles"
+            ],
+            "skill_based_path": [
+                "Medical lab skills",
+                "Diagnostics training",
+                "Private clinic work"
+            ]
+        },
+        "food_technologist": {
+            "primary_path": [
+                "Choose PCB / PCM",
+                "B.Tech / B.Sc Food Technology",
+                "Industry training",
+                "Food technologist role"
+            ],
+            "alternate_path": [
+                "Chemistry / Biology degree",
+                "Food safety certification",
+                "Quality control roles"
+            ],
+            "skill_based_path": [
+                "Food processing skills",
+                "FSSAI certifications",
+                "Food startup"
+            ]
+        },
+        "environmental_scientist": {
+            "primary_path": [
+                "Choose PCB",
+                "B.Sc Environmental Science",
+                "M.Sc specialization",
+                "Environmental scientist role"
+            ],
+            "alternate_path": [
+                "Biology / Chemistry degree",
+                "Environmental NGO work"
+            ],
+            "skill_based_path": [
+                "Environmental analysis tools",
+                "Field research",
+                "Consultancy roles"
+            ]
+        },
+        "pilot": {
+            "primary_path": [
+                "Choose PCM",
+                "Clear medical tests",
+                "Flight training academy",
+                "Commercial Pilot License",
+                "Airline pilot"
+            ],
+            "alternate_path": [
+                "Private pilot license",
+                "Charter services",
+                "Flight instructor"
+            ],
+            "skill_based_path": [
+                "Flight simulation training",
+                "Aviation certifications",
+                "Charter / cargo flying"
+            ]
+        },
+        "defense_officer": {
+            "primary_path": [
+                "Any stream",
+                "Clear NDA / CDS",
+                "Defense academy training",
+                "Commissioned officer"
+            ],
+            "alternate_path": [
+                "Graduate degree",
+                "Technical / SSC entry",
+                "Defense services"
+            ],
+            "skill_based_path": [
+                "Physical training",
+                "Leadership skills",
+                "Private security roles"
+            ]
+        },
+        "drone_pilot": {
+            "primary_path": [
+                "Any stream",
+                "DGCA-certified drone training",
+                "Commercial license",
+                "Drone pilot jobs"
+            ],
+            "alternate_path": [
+                "Aviation / Engineering background",
+                "Industrial drone operations"
+            ],
+            "skill_based_path": [
+                "Drone handling skills",
+                "Aerial photography",
+                "Freelance drone services"
+            ]
+        },
+        "science_content_creator": {
+            "primary_path": [
+                "Science background",
+                "Strong subject knowledge",
+                "Content creation platforms",
+                "Educational brand building"
+            ],
+            "alternate_path": [
+                "Teaching experience",
+                "Online education platforms"
+            ],
+            "skill_based_path": [
+                "Video creation skills",
+                "Script writing",
+                "Monetized content channels"
+            ]
+        }
+    }
+}

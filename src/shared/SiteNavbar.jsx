@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { logout } from '../services/auth';
+import React, { useMemo, useState, useEffect } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { logout as sessionLogout } from '../services/auth';
 import './SiteNavbar.css';
 
 const CapIcon = (props) => (
@@ -26,19 +26,44 @@ const CapIcon = (props) => (
 );
 
 const SiteNavbar = () => {
+  const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+  const [userInfo, setUserInfo] = useState({
+    name: localStorage.getItem('user_name'),
+    photo: localStorage.getItem('user_photo')
+  });
+
+  // Update state when local storage changes
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setUserInfo({
+        name: localStorage.getItem('user_name'),
+        photo: localStorage.getItem('user_photo')
+      });
+    };
+
+    // Listen for custom 'storage' events (from same window) and native 'storage' events (from other tabs)
+    window.addEventListener('storage', handleStorageChange);
+
+    // Cleanup
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
+  const handleLogout = () => {
+    sessionLogout();
+    setUserInfo({ name: null, photo: null });
+    setOpen(false);
+  };
+
   const links = useMemo(
     () => [
       { label: 'Home', to: '/' },
       { label: 'Career Paths', to: '/career-paths' },
+      { label: 'Career Advice', to: '/recommendations' },
       { label: 'Concept Hub', to: '/concept-hub' },
-      { label: 'Career Advice', to: '/#career-advice' },
-      { label: 'Resources', to: '/#resources' },
-      { label: 'About', to: '/#about' },
     ],
     []
   );
-
-  const [open, setOpen] = useState(false);
 
   return (
     <nav className="nav">
@@ -65,13 +90,47 @@ const SiteNavbar = () => {
         </div>
 
         <div className="nav__right">
-          {localStorage.getItem('user_name') ? (
+          {userInfo.name ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <button className="btn btn--primary nav__cta">
-                {localStorage.getItem('user_name')}
-              </button>
+              <Link to="/profile" title={userInfo.name || 'Profile'} style={{ display: 'flex', alignItems: 'center' }}>
+                {userInfo.photo ? (
+                  <img
+                    src={userInfo.photo}
+                    alt={userInfo.name}
+                    style={{
+                      width: '55px',
+                      height: '55px',
+                      borderRadius: '50%',
+                      objectFit: 'cover',
+                      border: '2px solid #2F5FA7',
+                      cursor: 'pointer',
+                      transition: 'transform 0.2s'
+                    }}
+                    onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                    onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                  />
+                ) : (
+                  <div style={{
+                    width: '55px',
+                    height: '55px',
+                    borderRadius: '50%',
+                    background: '#e2e8f0',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '2px solid #cbd5e1',
+                    fontSize: '1.5rem',
+                    cursor: 'pointer',
+                    color: '#475569'
+                  }}
+                    title="View Profile"
+                  >
+                    {userInfo.name ? userInfo.name.charAt(0).toUpperCase() : '👤'}
+                  </div>
+                )}
+              </Link>
               <button
-                onClick={logout}
+                onClick={handleLogout}
                 className="nav__link"
                 style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1rem', fontWeight: '600' }}
               >
@@ -109,8 +168,8 @@ const SiteNavbar = () => {
               {l.label}
             </Link>
           ))}
-          {localStorage.getItem('user_name') ? (
-            <button className="navMobile__link" onClick={() => { logout(); setOpen(false); }} style={{ background: 'none', border: 'none', textAlign: 'left', cursor: 'pointer', fontSize: '1.2rem', fontWeight: '500', color: '#333', padding: '1rem 0', width: '100%' }}>
+          {userInfo.name ? (
+            <button className="navMobile__link" onClick={handleLogout} style={{ background: 'none', border: 'none', textAlign: 'left', cursor: 'pointer', fontSize: '1.2rem', fontWeight: '500', color: '#333', padding: '1rem 0', width: '100%' }}>
               Logout
             </button>
           ) : (
@@ -128,4 +187,3 @@ const SiteNavbar = () => {
 };
 
 export default SiteNavbar;
-

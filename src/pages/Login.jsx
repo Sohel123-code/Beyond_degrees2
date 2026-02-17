@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../services/auth';
+import { login, register } from '../services/auth';
 import '../styles.css';
 
 const Login = () => {
+    const [isSignup, setIsSignup] = useState(false);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -12,15 +13,33 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
+    const validateEmail = (email) => {
+        const regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        return regex.test(email);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
         setError('');
         setMessage('');
 
+        if (!validateEmail(email)) {
+            setError('Please enter a valid Gmail address (ending in @gmail.com)');
+            setLoading(false);
+            return;
+        }
+
         try {
-            const res = await login(email, password, name);
-            setMessage('Success! Redirecting...');
+            let res;
+            if (isSignup) {
+                res = await register(name, email, password);
+                setMessage('Registration successful! Redirecting...');
+            } else {
+                res = await login(email, password);
+                setMessage('Login successful! Redirecting...');
+            }
+
             setTimeout(() => {
                 navigate('/');
             }, 1000);
@@ -29,6 +48,15 @@ const Login = () => {
         } finally {
             setLoading(false);
         }
+    };
+
+    const toggleMode = () => {
+        setIsSignup(!isSignup);
+        setError('');
+        setMessage('');
+        setName('');
+        setEmail('');
+        setPassword('');
     };
 
     return (
@@ -51,31 +79,38 @@ const Login = () => {
                 textAlign: 'center',
                 transition: 'transform 0.3s ease'
             }}>
-                <h2 style={{ marginBottom: '0.5rem', color: '#333', fontWeight: 'bold' }}>Welcome Back</h2>
-                <p style={{ marginBottom: '2rem', color: '#666' }}>Login to access modules</p>
+                <h2 style={{ marginBottom: '0.5rem', color: '#333', fontWeight: 'bold' }}>
+                    {isSignup ? 'Create Account' : 'Welcome Back'}
+                </h2>
+                <p style={{ marginBottom: '2rem', color: '#666' }}>
+                    {isSignup ? 'Sign up to get started' : 'Login to access modules'}
+                </p>
 
                 {message && <div style={{ padding: '10px', background: '#d4edda', color: '#155724', borderRadius: '4px', marginBottom: '1rem' }}>{message}</div>}
                 {error && <div style={{ padding: '10px', background: '#f8d7da', color: '#721c24', borderRadius: '4px', marginBottom: '1rem' }}>{error}</div>}
 
                 <form onSubmit={handleSubmit}>
-                    <div style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
-                        <label style={{ display: 'block', marginBottom: '0.5rem', color: '#333', fontSize: '0.95rem', fontWeight: '600' }}>Full Name <span style={{ fontWeight: 'normal', color: '#888', fontSize: '0.85rem' }}>(Required for new users)</span></label>
-                        <input
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            style={{
-                                width: '100%',
-                                padding: '12px',
-                                borderRadius: '8px',
-                                border: '1px solid #ccc',
-                                fontSize: '16px',
-                                outline: 'none',
-                                transition: 'border-color 0.3s',
-                                backgroundColor: '#f9f9f9'
-                            }}
-                        />
-                    </div>
+                    {isSignup && (
+                        <div style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
+                            <label style={{ display: 'block', marginBottom: '0.5rem', color: '#333', fontSize: '0.95rem', fontWeight: '600' }}>Full Name</label>
+                            <input
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required
+                                style={{
+                                    width: '100%',
+                                    padding: '12px',
+                                    borderRadius: '8px',
+                                    border: '1px solid #ccc',
+                                    fontSize: '16px',
+                                    outline: 'none',
+                                    transition: 'border-color 0.3s',
+                                    backgroundColor: '#f9f9f9'
+                                }}
+                            />
+                        </div>
+                    )}
 
                     <div style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
                         <label style={{ display: 'block', marginBottom: '0.5rem', color: '#333', fontSize: '0.95rem', fontWeight: '600' }}>Email Address</label>
@@ -133,10 +168,23 @@ const Login = () => {
                             boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
                         }}
                     >
-                        {loading ? 'Processing...' : 'Login / Register'}
+                        {loading ? 'Processing...' : (isSignup ? 'Register' : 'Login')}
                     </button>
-                    <p style={{ marginTop: '1rem', color: '#888', fontSize: '0.9rem' }}>
-                        New here? Just enter your details above to create an account.
+
+                    <p style={{ marginTop: '1rem', color: '#666', fontSize: '0.9rem' }}>
+                        {isSignup ? 'Already have an account?' : 'New here?'}
+                        <span
+                            onClick={toggleMode}
+                            style={{
+                                color: '#333',
+                                fontWeight: 'bold',
+                                cursor: 'pointer',
+                                marginLeft: '5px',
+                                textDecoration: 'underline'
+                            }}
+                        >
+                            {isSignup ? 'Login' : 'Create an account'}
+                        </span>
                     </p>
                 </form>
             </div>

@@ -10,6 +10,9 @@ import GradBuddy from './pages/GradBuddy/GradBuddy';
 import FloatingBuddy from './components/FloatingBuddy';
 import IntroVideo from './components/IntroVideo';
 import Login from './pages/Login';
+import Profile from './pages/Profile';
+import Recommendations from './pages/Recommendations/Recommendations';
+import CareerAdviceDetail from './pages/Recommendations/CareerDetail';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
@@ -62,6 +65,21 @@ function App() {
         <Route path="/gradbuddy" element={
           <ProtectedRoute>
             <GradBuddy />
+          </ProtectedRoute>
+        } />
+        <Route path="/profile" element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        } />
+        <Route path="/recommendations" element={
+          <ProtectedRoute>
+            <Recommendations />
+          </ProtectedRoute>
+        } />
+        <Route path="/career-advice/:careerTitle" element={
+          <ProtectedRoute>
+            <CareerAdviceDetail />
           </ProtectedRoute>
         } />
 

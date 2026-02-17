@@ -1,0 +1,252 @@
+{
+    "commerce": {
+        "chartered_accountant": {
+            "primary_path": [
+                "Choose Commerce in 11th & 12th",
+                "Register for CA Foundation",
+                "Clear CA Intermediate",
+                "Articleship training",
+                "Clear CA Final"
+            ],
+            "alternate_path": [
+                "Choose Commerce",
+                "Complete B.Com",
+                "MBA Finance",
+                "Senior finance roles"
+            ],
+            "skill_based_path": [
+                "Learn accounting software",
+                "GST & taxation certifications",
+                "Freelance accounting",
+                "Finance consultancy"
+            ]
+        },
+        "cost_management_accountant": {
+            "primary_path": [
+                "Choose Commerce",
+                "Register for CMA Foundation",
+                "Clear CMA Intermediate",
+                "Clear CMA Final",
+                "Cost accountant role"
+            ],
+            "alternate_path": [
+                "B.Com / BBA",
+                "MBA Finance",
+                "Corporate finance roles"
+            ],
+            "skill_based_path": [
+                "Cost analysis tools",
+                "ERP systems",
+                "Consulting roles"
+            ]
+        },
+        "business_analyst": {
+            "primary_path": [
+                "Commerce / Any stream",
+                "Bachelor’s degree",
+                "MBA / Business analytics",
+                "Business Analyst role"
+            ],
+            "alternate_path": [
+                "B.Com / BBA",
+                "Operations / finance role",
+                "Internal transition to analyst"
+            ],
+            "skill_based_path": [
+                "Excel, SQL, Power BI",
+                "Business case studies",
+                "Portfolio projects",
+                "Analyst jobs"
+            ]
+        },
+        "banking_officer": {
+            "primary_path": [
+                "Graduate in any discipline",
+                "Prepare for banking exams",
+                "Clear IBPS / SBI exams",
+                "Probationary officer"
+            ],
+            "alternate_path": [
+                "Private banking roles",
+                "Clerk to officer promotion"
+            ],
+            "skill_based_path": [
+                "Finance knowledge",
+                "Customer relationship skills",
+                "Private finance sector jobs"
+            ]
+        },
+        "insurance_officer": {
+            "primary_path": [
+                "Graduate in any stream",
+                "Clear insurance exams",
+                "Join LIC / Insurance firms",
+                "Insurance officer role"
+            ],
+            "alternate_path": [
+                "Private insurance companies",
+                "Sales to managerial roles"
+            ],
+            "skill_based_path": [
+                "Insurance advisory",
+                "Risk assessment skills",
+                "Independent insurance agent"
+            ]
+        },
+        "financial_analyst": {
+            "primary_path": [
+                "Commerce background",
+                "Bachelor’s degree",
+                "MBA Finance / CFA",
+                "Financial analyst role"
+            ],
+            "alternate_path": [
+                "B.Com",
+                "Corporate accounting",
+                "Finance analyst transition"
+            ],
+            "skill_based_path": [
+                "Financial modeling",
+                "Valuation tools",
+                "Investment analysis roles"
+            ]
+        },
+        "investment_banker": {
+            "primary_path": [
+                "Commerce / Any stream",
+                "Top-tier bachelor’s degree",
+                "MBA Finance",
+                "Investment banking role"
+            ],
+            "alternate_path": [
+                "Chartered Accountant",
+                "Corporate finance",
+                "Investment banking transition"
+            ],
+            "skill_based_path": [
+                "Financial modeling",
+                "Deal analysis",
+                "Boutique investment firms"
+            ]
+        },
+        "stock_market_trader": {
+            "primary_path": [
+                "Any stream",
+                "Learn stock market basics",
+                "Trading strategies",
+                "Professional trader"
+            ],
+            "alternate_path": [
+                "Finance degree",
+                "Work in brokerage firms"
+            ],
+            "skill_based_path": [
+                "Technical analysis",
+                "Paper trading",
+                "Independent trading"
+            ]
+        },
+        "digital_marketer": {
+            "primary_path": [
+                "Any stream",
+                "Digital marketing course",
+                "Agency experience",
+                "Senior marketing roles"
+            ],
+            "alternate_path": [
+                "MBA Marketing",
+                "Brand marketing roles"
+            ],
+            "skill_based_path": [
+                "SEO, Ads, Analytics",
+                "Freelancing",
+                "Personal brand / agency"
+            ]
+        },
+        "marketing_manager": {
+            "primary_path": [
+                "Commerce / Any stream",
+                "Bachelor’s degree",
+                "MBA Marketing",
+                "Marketing manager role"
+            ],
+            "alternate_path": [
+                "Sales experience",
+                "Promotion to marketing"
+            ],
+            "skill_based_path": [
+                "Campaign strategy",
+                "Brand building",
+                "Consulting roles"
+            ]
+        },
+        "human_resource_manager": {
+            "primary_path": [
+                "Any stream",
+                "Bachelor’s degree",
+                "MBA HR",
+                "HR manager role"
+            ],
+            "alternate_path": [
+                "Psychology / Management degree",
+                "HR executive growth"
+            ],
+            "skill_based_path": [
+                "Recruitment skills",
+                "HR tools",
+                "HR consulting"
+            ]
+        },
+        "economist": {
+            "primary_path": [
+                "Commerce / Arts",
+                "Bachelor’s in Economics",
+                "Master’s in Economics",
+                "Economist role"
+            ],
+            "alternate_path": [
+                "Statistics / Finance background",
+                "Policy research roles"
+            ],
+            "skill_based_path": [
+                "Data analysis",
+                "Economic modeling",
+                "Think tanks / consultancy"
+            ]
+        },
+        "auditor": {
+            "primary_path": [
+                "Commerce",
+                "CA / CMA qualification",
+                "Audit firm experience",
+                "Senior auditor"
+            ],
+            "alternate_path": [
+                "B.Com",
+                "Internal audit roles"
+            ],
+            "skill_based_path": [
+                "Audit tools",
+                "Compliance knowledge",
+                "Freelance audits"
+            ]
+        },
+        "supply_chain_manager": {
+            "primary_path": [
+                "Commerce / Engineering",
+                "Bachelor’s degree",
+                "MBA Operations / Supply Chain",
+                "Supply chain manager"
+            ],
+            "alternate_path": [
+                "Logistics roles",
+                "Operations management"
+            ],
+            "skill_based_path": [
+                "ERP systems",
+                "Process optimization",
+                "Consulting roles"
+            ]
+        }
+    }
+}

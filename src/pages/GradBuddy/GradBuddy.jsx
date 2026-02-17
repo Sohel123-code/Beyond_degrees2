@@ -15,11 +15,12 @@ const GradBuddy = () => {
     };
 
     useEffect(() => {
+        const userName = localStorage.getItem('user_name') || 'Friend';
         // Initial greeting
         setMessages([
             {
                 role: 'bot',
-                content: "Hello! I'm GradBuddy, your AI career companion. 🎓 What are you studying right now?"
+                content: `Hi ${userName}! I'm GradBuddy, your AI career companion. 🎓 What are you studying right now?`
             }
         ]);
     }, []);

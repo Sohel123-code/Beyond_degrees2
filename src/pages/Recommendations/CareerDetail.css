@@ -1,0 +1,376 @@
+.career-detail-page {
+    background-color: #f8fafc;
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+.detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+    padding-top: 40px;
+    /* Reduced since Navbar is global, verify alignment */
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: #2f5fa7;
+}
+
+.detail-header {
+    margin-bottom: 2.5rem;
+}
+
+.detail-header h1 {
+    font-size: 2.5rem;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.detail-overview {
+    font-size: 1.2rem;
+    color: #475569;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2.5rem;
+}
+
+@media (max-width: 900px) {
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sections */
+.detail-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    border: 1px solid #e2e8f0;
+}
+
+.detail-section h2 {
+    font-size: 1.5rem;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 0.5rem;
+}
+
+.detail-section p,
+.detail-section li {
+    font-size: 1rem;
+    color: #334155;
+    line-height: 1.7;
+}
+
+.detail-section ul {
+    padding-left: 1.5rem;
+}
+
+.detail-section li {
+    margin-bottom: 0.5rem;
+}
+
+/* Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.skills-grid h3 {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 1rem;
+}
+
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.tag--tech {
+    background: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #dbeafe;
+}
+
+.tag--soft {
+    background: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #dcfce7;
+}
+
+/* Scope Box */
+.scope-box {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.trend-highlight {
+    margin-top: 1rem;
+    color: #2f5fa7;
+    background: #e0f2fe;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* Growth Path */
+.growth-path {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.growth-step {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex: 1;
+}
+
+.step-circle {
+    width: 32px;
+    height: 32px;
+    background: #2f5fa7;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.step-label {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.step-line {
+    height: 2px;
+    background: #cbd5e1;
+    flex-grow: 1;
+    margin: 0 10px;
+}
+
+/* Sidebar */
+.sidebar-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.sidebar-card h3 {
+    font-size: 1.2rem;
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+.sidebar-card h4 {
+    font-size: 1rem;
+    color: #334155;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Salary */
+.salary-card {
+    background: linear-gradient(135deg, #2f5fa7 0%, #1e40a5 100%);
+    color: white;
+}
+
+.salary-card h3 {
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.salary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.salary-item .value {
+    font-weight: bold;
+    color: #fbbf24;
+}
+
+/* Sidebar List */
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f1f5f9;
+    color: #475569;
+    font-size: 0.9rem;
+}
+
+.sidebar-list li:last-child {
+    border-bottom: none;
+}
+
+.company-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.company-tag {
+    background: #f1f5f9;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #334155;
+}
+
+.suitability-card {
+    background: #fffbeb;
+    border-color: #fcd34d;
+}
+
+.suitability-card h3 {
+    color: #92400e;
+}
+
+.suitability-card p {
+    color: #92400e;
+    font-size: 0.95rem;
+}
+
+.loading-container,
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    padding: 2rem;
+}
+
+.loading-container h2 {
+    margin-top: 1rem;
+    color: #2f5fa7;
+}
+
+.error-container h2 {
+    color: #ef4444;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .detail-grid {
+        grid-template-columns: 1fr;
+        /* Stack sidebar below main content */
+        gap: 2rem;
+    }
+
+    .detail-sidebar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .detail-container {
+        padding: 1.5rem 1rem;
+        padding-top: 20px;
+    }
+
+    .detail-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .detail-overview {
+        font-size: 1rem;
+    }
+
+    .detail-sidebar {
+        grid-template-columns: 1fr;
+        /* Single column layout for sidebar items */
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .growth-path {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    .growth-step {
+        margin-bottom: 1.5rem;
+        width: 100%;
+    }
+
+    .step-circle {
+        margin-right: 15px;
+    }
+
+    .step-line {
+        position: absolute;
+        left: 15px;
+        top: 32px;
+        bottom: -20px;
+        width: 2px;
+        height: auto;
+        margin: 0;
+    }
+
+    .growth-step:last-child .step-line {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .detail-section {
+        padding: 1.5rem;
+    }
+
+    .detail-section h2 {
+        font-size: 1.25rem;
+    }
+}

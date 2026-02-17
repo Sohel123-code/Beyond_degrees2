@@ -1,0 +1,260 @@
+{
+    "no_degree": {
+        "software_developer": {
+            "primary_path": [
+                "Learn programming basics",
+                "Choose a tech stack",
+                "Build real-world projects",
+                "Apply for developer jobs"
+            ],
+            "alternate_path": [
+                "Coding bootcamp",
+                "Internships",
+                "Junior developer role"
+            ],
+            "skill_based_path": [
+                "Open-source contributions",
+                "Freelancing",
+                "Remote developer jobs"
+            ]
+        },
+        "web_developer": {
+            "primary_path": [
+                "Learn HTML, CSS, JavaScript",
+                "Frontend / Full-stack framework",
+                "Build websites",
+                "Web developer job"
+            ],
+            "alternate_path": [
+                "Internships",
+                "Agency experience"
+            ],
+            "skill_based_path": [
+                "Freelance websites",
+                "Client projects",
+                "Personal SaaS products"
+            ]
+        },
+        "mobile_app_developer": {
+            "primary_path": [
+                "Learn Android / iOS basics",
+                "Frameworks (Flutter / React Native)",
+                "Build mobile apps",
+                "App developer job"
+            ],
+            "alternate_path": [
+                "Indie app publishing",
+                "Startup app roles"
+            ],
+            "skill_based_path": [
+                "Freelancing",
+                "App monetization",
+                "Remote contracts"
+            ]
+        },
+        "ui_ux_designer": {
+            "primary_path": [
+                "Learn design principles",
+                "Master Figma / design tools",
+                "Build case studies",
+                "UI/UX designer role"
+            ],
+            "alternate_path": [
+                "Graphic design background",
+                "Product design transition"
+            ],
+            "skill_based_path": [
+                "Freelancing",
+                "Design consulting",
+                "Remote design jobs"
+            ]
+        },
+        "game_developer": {
+            "primary_path": [
+                "Learn Unity / Unreal",
+                "Game mechanics & design",
+                "Build playable games",
+                "Game studio roles"
+            ],
+            "alternate_path": [
+                "Indie game publishing",
+                "Gaming startups"
+            ],
+            "skill_based_path": [
+                "Freelance game dev",
+                "Asset creation",
+                "Revenue-sharing projects"
+            ]
+        },
+        "cybersecurity_specialist": {
+            "primary_path": [
+                "Learn networking fundamentals",
+                "Security tools & concepts",
+                "Hands-on labs",
+                "Security analyst roles"
+            ],
+            "alternate_path": [
+                "IT support",
+                "System admin → security"
+            ],
+            "skill_based_path": [
+                "Bug bounty programs",
+                "Freelance security testing",
+                "Security consulting"
+            ]
+        },
+        "cloud_freelancer": {
+            "primary_path": [
+                "Learn Linux & networking",
+                "Cloud platforms practice",
+                "Deploy cloud projects",
+                "Cloud freelance roles"
+            ],
+            "alternate_path": [
+                "DevOps basics",
+                "Remote infrastructure jobs"
+            ],
+            "skill_based_path": [
+                "Client cloud setup",
+                "SaaS deployment services",
+                "Retainer contracts"
+            ]
+        },
+        "data_analyst": {
+            "primary_path": [
+                "Learn Excel, SQL, Python",
+                "Data analysis projects",
+                "Portfolio creation",
+                "Analyst roles"
+            ],
+            "alternate_path": [
+                "Business reporting roles",
+                "Analytics transition"
+            ],
+            "skill_based_path": [
+                "Freelance analytics",
+                "Dashboard consulting",
+                "Remote analyst work"
+            ]
+        },
+        "digital_marketer": {
+            "primary_path": [
+                "Learn SEO & ads",
+                "Marketing campaigns",
+                "Agency experience",
+                "Marketing roles"
+            ],
+            "alternate_path": [
+                "Content marketing",
+                "Social media management"
+            ],
+            "skill_based_path": [
+                "Freelance clients",
+                "Personal brand",
+                "Marketing agency"
+            ]
+        },
+        "content_creator": {
+            "primary_path": [
+                "Choose niche",
+                "Create consistent content",
+                "Grow audience",
+                "Brand collaborations"
+            ],
+            "alternate_path": [
+                "Freelance content",
+                "Media platforms"
+            ],
+            "skill_based_path": [
+                "YouTube / Instagram",
+                "Courses & memberships",
+                "Monetized communities"
+            ]
+        },
+        "science_content_creator": {
+            "primary_path": [
+                "Strong subject knowledge",
+                "Script writing",
+                "Educational videos",
+                "EdTech collaborations"
+            ],
+            "alternate_path": [
+                "Online tutoring",
+                "Course creation"
+            ],
+            "skill_based_path": [
+                "YouTube monetization",
+                "Paid courses",
+                "Sponsorships"
+            ]
+        },
+        "tech_youtuber": {
+            "primary_path": [
+                "Learn tech topics",
+                "Content planning",
+                "Video production",
+                "Audience monetization"
+            ],
+            "alternate_path": [
+                "Tech blogging",
+                "Podcasting"
+            ],
+            "skill_based_path": [
+                "Affiliate marketing",
+                "Sponsored reviews",
+                "Digital products"
+            ]
+        },
+        "drone_pilot": {
+            "primary_path": [
+                "DGCA-certified training",
+                "Commercial drone license",
+                "Industry drone jobs"
+            ],
+            "alternate_path": [
+                "Aerial photography",
+                "Surveying roles"
+            ],
+            "skill_based_path": [
+                "Freelance drone services",
+                "Real estate & media work",
+                "Drone startup"
+            ]
+        },
+        "freelancer": {
+            "primary_path": [
+                "Choose skill",
+                "Build portfolio",
+                "Client acquisition",
+                "Full-time freelancing"
+            ],
+            "alternate_path": [
+                "Part-time freelancing",
+                "Remote contracts"
+            ],
+            "skill_based_path": [
+                "Upwork / Fiverr",
+                "Personal website",
+                "Retainer clients"
+            ]
+        },
+        "entrepreneur": {
+            "primary_path": [
+                "Identify problem",
+                "Build solution",
+                "Validate market",
+                "Scale business"
+            ],
+            "alternate_path": [
+                "Join startup",
+                "Learn operations",
+                "Launch venture"
+            ],
+            "skill_based_path": [
+                "Sales & marketing",
+                "Bootstrapping",
+                "Online businesses"
+            ]
+        }
+    }
+}
