@@ -6,7 +6,13 @@ import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import axios from 'axios';
 
+import authRoutes from '../server/routes/authRoutes.js';
+import chatRoutes from '../server/routes/chatRoutes.js';
+import recommendationRoutes from '../server/routes/recommendationRoutes.js';
+import { supabase } from '../server/config/supabase.js';
+
 dotenv.config();
+dotenv.config({ path: 'api/.env' });
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,7 +20,12 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
+
+app.use('/auth', authRoutes);
+app.use('/api/recommendations', recommendationRoutes);
+app.use('/api', chatRoutes); // Mounts at /api/gradbuddy
 
 // In Vercel, the directory structure might change. we use process.cwd() to get the project root.
 const DATA_PATH = path.join(process.cwd(), 'src/data');
@@ -142,80 +153,76 @@ const getMergedData = () => {
     }
 };
 
-app.get('/api/concepts', (req, res) => {
+app.get('/api/concepts', async (req, res) => {
     const data = getMergedData();
+
+    // Update career-skills in the list from Supabase
+    const careerSkillsCategory = data.find(c => c.id === 'career-skills');
+    if (careerSkillsCategory) {
+        try {
+            const { data: supabaseSkills, error } = await supabase
+                .from('career skills')
+                .select('*');
+
+            if (!error && supabaseSkills && supabaseSkills.length > 0) {
+                const formattedSupabase = supabaseSkills.map(v => ({
+                    name: v.subcategory || 'Video ' + v.video_number,
+                    link: v.youtube_url,
+                    creator: '',
+                    topic: v.subcategory || '',
+                    videoId: extractVideoId(v.youtube_url),
+                    info: 'YouTube Tutorial'
+                }));
+                careerSkillsCategory.sources = formattedSupabase;
+            }
+        } catch (dbError) {
+            console.error('Supabase fetch error for all concepts:', dbError);
+        }
+    }
+
     res.json(data);
 });
 
-app.get('/api/concepts/:categoryId', (req, res) => {
+app.get('/api/concepts/:categoryId', async (req, res) => {
     const { categoryId } = req.params;
     const data = getMergedData();
-    const category = data.find(c => c.id === categoryId);
+    let category = data.find(c => c.id === categoryId);
+
+    if (categoryId === 'career-skills' || categoryId === 'career-skills-v2') {
+        try {
+            const { data: supabaseSkills, error } = await supabase
+                .from('career skills')
+                .select('*');
+
+            if (!error && supabaseSkills && supabaseSkills.length > 0) {
+                const formattedSupabase = supabaseSkills.map(v => ({
+                    name: v.subcategory || 'Video ' + v.video_number,
+                    link: v.youtube_url,
+                    creator: '',
+                    topic: v.subcategory || '',
+                    videoId: extractVideoId(v.youtube_url),
+                    info: 'YouTube Tutorial'
+                }));
+
+                if (category) {
+                    category.sources = formattedSupabase;
+                } else {
+                    category = {
+                        id: 'career-skills',
+                        ...categoriesMetadata['career-skills'],
+                        sources: formattedSupabase
+                    };
+                }
+            }
+        } catch (dbError) {
+            console.error('Supabase fetch error:', dbError);
+        }
+    }
+
     if (category) {
         res.json(category);
     } else {
         res.status(404).json({ error: 'Category not found' });
-    }
-});
-
-const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
-
-app.post('/api/gradbuddy', async (req, res) => {
-    const { message, history } = req.body;
-    const GROQ_API_KEY = process.env.GROQ_API_KEY;
-
-    if (!GROQ_API_KEY || GROQ_API_KEY === 'your_groq_api_key_here') {
-        return res.status(500).json({ error: 'Groq API key not configured.' });
-    }
-
-    try {
-        const dataFiles = [
-            'buisness.json', 'arts.json', 'career.json', 'career1.json',
-            'commerce.json', 'data.json', 'life.json', 'money.json', 'non-degree.json'
-        ];
-
-        let contextData = {};
-        dataFiles.forEach(file => {
-            const filePath = path.join(DATA_PATH, file);
-            if (fs.existsSync(filePath)) {
-                const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-                if (Array.isArray(content)) {
-                    contextData[file] = content.slice(0, 5).map(i => i.title || i.career_name || i.name);
-                } else if (content.streams) {
-                    contextData[file] = Object.keys(content.streams);
-                } else {
-                    contextData[file] = Object.keys(content).slice(0, 5);
-                }
-            }
-        });
-
-        const systemPrompt = `You are "GradBuddy", a helpful career guidance chatbot for the "Beyond Degrees" platform. 
-Your goal is to help students explore career paths, skills, and life skills.
-Refer to these categories and topics from our data: ${JSON.stringify(contextData)}.
-Keep your responses encouraging, detailed and encouraging.
-ONLY provide a Mermaid flowchart if requested (e.g., "roadmap", "flowchart").
-Use 'graph TD' and wrap labels in: A["Label"].`;
-
-        const response = await axios.post(GROQ_API_URL, {
-            model: 'llama-3.3-70b-versatile',
-            messages: [
-                { role: 'system', content: systemPrompt },
-                ...history,
-                { role: 'user', content: message }
-            ],
-            temperature: 0.7,
-            max_tokens: 1024
-        }, {
-            headers: {
-                'Authorization': `Bearer ${GROQ_API_KEY}`,
-                'Content-Type': 'application/json'
-            }
-        });
-
-        res.json({ reply: response.data.choices[0].message.content });
-    } catch (error) {
-        console.error('Groq Error:', error.response?.data || error.message);
-        res.status(500).json({ error: 'Failed to get response.' });
     }
 });
 
