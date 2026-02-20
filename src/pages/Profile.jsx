@@ -29,7 +29,7 @@ const Profile = () => {
 
             try {
                 // Fetch full profile from backend
-                const response = await axios.get('http://localhost:5000/auth/profile', {
+                const response = await axios.get('/auth/profile', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 
@@ -116,7 +116,7 @@ const Profile = () => {
 
         try {
             const token = localStorage.getItem('token');
-            await axios.put('http://localhost:5000/auth/profile', {
+            await axios.put('/auth/profile', {
                 ...user,
                 social_links: user.social_links
             }, {

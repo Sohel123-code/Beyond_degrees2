@@ -23,7 +23,7 @@ const CareerDetail = () => {
                 // Decode title from URL
                 const title = decodeURIComponent(careerTitle);
 
-                const response = await axios.post('http://localhost:5000/api/recommendations/detail',
+                const response = await axios.post('/api/recommendations/detail',
                     { title },
                     { headers: { Authorization: `Bearer ${token}` } }
                 );

@@ -81,7 +81,7 @@ const Recommendations = () => {
                 return;
             }
 
-            const response = await axios.get('http://localhost:5000/auth/profile', {
+            const response = await axios.get('/auth/profile', {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
@@ -132,7 +132,7 @@ const Recommendations = () => {
         setView('results'); // Show loading state in results view
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:5000/api/recommendations', {
+            const response = await axios.get('/api/recommendations', {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
@@ -168,7 +168,7 @@ const Recommendations = () => {
             };
 
             // Update profile first
-            await axios.put('http://localhost:5000/auth/profile', payload, {
+            await axios.put('/auth/profile', payload, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
