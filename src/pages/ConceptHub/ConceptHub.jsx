@@ -25,7 +25,7 @@ const ConceptHub = () => {
                         id: 'money-finance',
                         title: 'Money & Finance',
                         emoji: '💰',
-                        image: '/assets/concept-hub/money-finance.png',
+                        image: '/assets/concept-hub/money.jpg',
                         description: 'Master budgeting, investing, and financial independence.',
                         colorHint: '#ffd700'
                     },
@@ -33,7 +33,7 @@ const ConceptHub = () => {
                         id: 'career-skills',
                         title: 'Career Skills',
                         emoji: '🚀',
-                        image: '/assets/concept-hub/career-skills.png',
+                        image: '/assets/concept-hub/career.png',
                         description: 'Essential skills to accelerate your professional growth.',
                         colorHint: '#9370db'
                     },
@@ -41,7 +41,7 @@ const ConceptHub = () => {
                         id: 'life-skills',
                         title: 'Life Skills',
                         emoji: '🧠',
-                        image: '/assets/concept-hub/life-skills.png',
+                        image: '/assets/concept-hub/life.jpg',
                         description: 'Navigate adult life with confidence and emotional intelligence.',
                         colorHint: '#40e0d0'
                     },

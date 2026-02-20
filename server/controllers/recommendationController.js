@@ -4,10 +4,8 @@ import { getCareerRecommendations, getCareerDetails } from '../services/groqServ
 export const getRecommendations = async (req, res) => {
     try {
         const userId = req.user.id;
-        console.log("Start Recommendation for User:", userId);
-        console.log("Recommendation Key:", process.env.GROQ_API_KEY2);
 
-        // Fetch user profile with survey data
+        // Fetch user profile
         const { data: user, error } = await supabase
             .from('USERS')
             .select('*')
@@ -15,26 +13,28 @@ export const getRecommendations = async (req, res) => {
             .single();
 
         if (error || !user) {
-            console.error('Error fetching user for recommendations:', error);
             return res.status(404).json({ error: 'User not found' });
         }
 
-        // Check if survey data exists
-        if (!user.branch && !user.interests && !user.domain) {
-            return res.status(400).json({
-                error: 'Survey incomplete',
-                message: 'Please complete the career interest survey first.'
-            });
+        // Get recommendations directly from Groq
+        const aiRecommendations = await getCareerRecommendations(user);
+
+        // Current frontend expects a specific structure.
+        // The Service returns { recommendations: [...] }
+        // We verify the structure matches what frontend needs.
+
+        if (!aiRecommendations || !aiRecommendations.recommendations) {
+            throw new Error("Invalid response from AI service");
         }
 
-        // Generate recommendations
-        const recommendations = await getCareerRecommendations(user);
+        // Log for debugging
+        console.log("AI Recommendations generated:", aiRecommendations.recommendations.length);
 
-        res.json(recommendations);
+        res.json(aiRecommendations);
 
     } catch (error) {
-        console.error('Recommendation error:', error);
-        res.status(500).json({ error: 'Failed to generate recommendations' });
+        console.error('CRITICAL RECOMMENDATION ERROR:', error);
+        res.status(500).json({ error: 'Failed to generate recommendations', details: error.message });
     }
 };
 
@@ -58,9 +58,17 @@ export const getCareerDetail = async (req, res) => {
             return res.status(404).json({ error: 'User not found' });
         }
 
-        // Generate detailed info
-        const details = await getCareerDetails(title, user);
-        res.json(details);
+        // Generate detailed info using Groq
+        try {
+            const details = await getCareerDetails(title, user);
+            res.json(details);
+        } catch (aiError) {
+            console.error('AI Detail fetch failed:', aiError);
+            res.status(500).json({
+                error: "Failed to fetch details",
+                message: "We could not generate the details at this time. Please try again."
+            });
+        }
 
     } catch (error) {
         console.error('Career detail error:', error);

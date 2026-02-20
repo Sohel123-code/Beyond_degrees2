@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
 :root {
   --page-bg: #f6f9ff;
   --surface: #ffffff;
@@ -14,13 +16,17 @@
   --shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
   --shadow-lg: 0 18px 40px rgba(15, 23, 42, 0.10);
 
+  /* Fonts */
+  --font-heading: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
   /* Cursor Tracking Variables */
   --mouse-x: 50%;
   --mouse-y: 50%;
 }
 
 body {
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: var(--font-body);
   background: var(--page-bg);
   color: var(--text);
   line-height: 1.6;
@@ -28,6 +34,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
 }
 
 /* Premium Background Blobs */

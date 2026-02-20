@@ -1,21 +1,24 @@
-import Groq from 'groq-sdk';
+import OpenAI from 'openai';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-// Use GROQ_API_KEY if available, otherwise fall back to GROQ_API_KEY2 or others if needed
-const API_KEY = process.env.GROQ_API_KEY || process.env.GROQ_API_KEY2;
+const API_KEY = process.env.OPEN_API_KEY;
+
+if (!API_KEY) {
+    console.error("OPEN_API_KEY is missing directly from process.env");
+}
+
+const openai = new OpenAI({
+    apiKey: API_KEY,
+});
 
 export const getCareerRecommendations = async (userProfile) => {
-  if (!API_KEY) {
-    throw new Error('GROQ_API_KEY is not defined in environment variables');
-  }
+    if (!API_KEY) {
+        throw new Error('OPEN_API_KEY is not defined in environment variables');
+    }
 
-  const groqRecommend = new Groq({
-    apiKey: API_KEY
-  });
-
-  const prompt = `
+    const prompt = `
     You are an expert career strategist, industry analyst, and academic mentor with strong knowledge of Indian and global job markets (2026 trends).
     
     Your task is to generate highly personalized, realistic, data-driven, and industry-relevant career recommendations.
@@ -35,34 +38,26 @@ export const getCareerRecommendations = async (userProfile) => {
       - State: ${userProfile.location?.state || 'Not specified'}
 
     -----------------------------------
-    STRICT SCORING & ANALYSIS INSTRUCTIONS:
+    ANALYSIS INSTRUCTIONS:
     -----------------------------------
-    1. Apply Priority Weighting for Target Role Match:
-       - If user career goal or interest is "Pilot":
-         - Direct role match (Commercial Pilot, Airline Pilot, Military Pilot) = 40% weight impact.
-         - Closely related aviation roles (ATC, Aircraft Maintenance) = 25% weight impact.
-         - Support aviation roles = 10% weight impact.
-         - Non-direct aviation roles = reduce weight significantly.
-    2. Apply Hard Requirement Filter:
-       - If the career path does NOT strictly require: Flight training, Pilot license, or Aircraft handling, then REDUCE the matchScore by 20%.
-    3. Apply Dream Role Boost:
-       - If user explicitly mentions "Pilot" in their career goal, boost direct pilot role scores by +15% (capping at 100%).
-    4. Apply Specific Skill Matching:
-       - Match against these specific physical and cognitive traits:
-         - Physical fitness
-         - English communication
-         - Decision making
-         - Reaction speed
-         - Medical fitness
-       - Give additional score points (up to +10%) based on the strength of this match.
-    5. Apply Negative Score for Non-Flying Roles:
-       - If the role does not involve actual operation or flying of an aircraft, subtract 15% from the matchScore.
-    6. General Analysis:
-       - Evaluate alignment between student's technical skills and 2026 industry demand.
-       - Adjust outcomes for ${userProfile.location?.state || 'specified state'} and ${userProfile.location?.country || 'specified country'}.
-       - Factor in automation risk and entry-level feasibility.
-    7. Avoid generic global-only answers. Ensure recommendations are realistic for the user profile.
-    8. If salary expectations are unrealistic for the region, justify the adjustment in the 'reason' field.
+    1. Evaluate alignment between student's technical skills and 2026 industry demand.
+    2. Adjust recommendations strictly based on the selected Country and State.
+       - Consider regional hiring trends.
+       - Consider state-level tech hubs or industry clusters.
+       - Adjust salary ranges according to the selected region.
+    3. Consider:
+       - Skill-demand gap
+       - Salary expectation realism (based on selected location)
+       - Industry growth trends (regional + global)
+       - Automation and AI disruption risk
+       - Entry-level feasibility
+       - Required certifications
+       - Competitive difficulty in that region
+       - Long-term scalability (2026–2032)
+    4. Avoid generic global-only answers.
+    5. Ensure recommendations are realistic for the student's current year.
+    6. Suggest careers achievable within 2–4 years.
+    7. If salary expectations are unrealistic for the selected state/country, explain clearly and adjust recommendation accordingly.
     
     -----------------------------------
     OUTPUT FORMAT:
@@ -95,37 +90,33 @@ export const getCareerRecommendations = async (userProfile) => {
     }
     `;
 
-  try {
-    const completion = await groqRecommend.chat.completions.create({
-      messages: [
-        { role: 'system', content: 'You are a helpful career assistant that outputs only JSON.' },
-        { role: 'user', content: prompt }
-      ],
-      model: 'llama-3.3-70b-versatile',
-      temperature: 0.7,
-      max_tokens: 2048,
-      response_format: { type: "json_object" }
-    });
+    try {
+        const completion = await openai.chat.completions.create({
+            messages: [
+                { role: 'system', content: 'You are a helpful career assistant that outputs only JSON.' },
+                { role: 'user', content: prompt }
+            ],
+            model: 'gpt-4o-mini',
+            temperature: 0.7,
+            max_tokens: 2048,
+            response_format: { type: "json_object" }
+        });
 
-    const content = completion.choices[0]?.message?.content;
-    return JSON.parse(content);
+        const content = completion.choices[0]?.message?.content;
+        return JSON.parse(content);
 
-  } catch (error) {
-    console.error('Error calling Groq API:', error);
-    throw new Error('Failed to generate recommendations');
-  }
+    } catch (error) {
+        console.error('Error calling OpenAI API:', error);
+        throw new Error('Failed to generate recommendations');
+    }
 };
 
 export const getCareerDetails = async (careerTitle, userProfile) => {
-  if (!API_KEY) {
-    throw new Error('GROQ_API_KEY is not defined in environment variables');
-  }
+    if (!API_KEY) {
+        throw new Error('OPEN_API_KEY is not defined in environment variables');
+    }
 
-  const groqRecommend = new Groq({
-    apiKey: API_KEY
-  });
-
-  const prompt = `
+    const prompt = `
     You are an expert career counselor. Provide a comprehensive, detailed guide for the career path: "${careerTitle}".
     
     Context: The user is a student/professional with the following profile:
@@ -164,22 +155,28 @@ export const getCareerDetails = async (careerTitle, userProfile) => {
     }
   `;
 
-  try {
-    const completion = await groqRecommend.chat.completions.create({
-      messages: [
-        { role: 'system', content: 'You are a helpful career assistant that outputs only JSON.' },
-        { role: 'user', content: prompt }
-      ],
-      model: 'llama-3.3-70b-versatile',
-      temperature: 0.7,
-      max_tokens: 3000,
-      response_format: { type: "json_object" }
-    });
+    try {
+        const completion = await openai.chat.completions.create({
+            messages: [
+                { role: 'system', content: 'You are a helpful career assistant that outputs only JSON.' },
+                { role: 'user', content: prompt }
+            ],
+            model: 'gpt-4o-mini',
+            temperature: 0.7,
+            max_tokens: 3000,
+            response_format: { type: "json_object" }
+        });
 
-    const content = completion.choices[0]?.message?.content;
-    return JSON.parse(content);
-  } catch (error) {
-    console.error('Error fetching career details:', error);
-    throw new Error('Failed to fetch career details');
-  }
+        const content = completion.choices[0]?.message?.content;
+        return JSON.parse(content);
+    } catch (error) {
+        console.error('Error fetching career details:', error);
+        throw new Error('Failed to fetch career details');
+    }
 };
+
+// We don't need getRecommendationsExplanation as much since we are getting full details from getCareerRecommendations directly now,
+// but keeping a placeholder if needed for specific explanation endpoint or if the controller pattern uses it.
+// The current controller logic suggests we might not need this if we rely solely on the main recommendation object's "reason".
+// However, the existing controller called it separately in step 4.
+// For OpenAI, we can simplify and just assume the main recommendation has the reason.

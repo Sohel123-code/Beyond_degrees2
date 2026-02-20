@@ -4,6 +4,51 @@ import axios from 'axios';
 import SiteNavbar from '../../shared/SiteNavbar';
 import './Recommendations.css';
 
+const BRANCHES = [
+    "MPC (Maths, Physics, Chemistry)",
+    "BiPC (Biology, Physics, Chemistry)",
+    "CEC (Civics, Economics, Commerce)",
+    "MEC (Maths, Economics, Commerce)",
+    "HEC (History, Economics, Civics)",
+    "Computer Science & Engineering",
+    "Information Technology",
+    "Electronics & Communication",
+    "Mechanical Engineering",
+    "Electrical Engineering",
+    "Civil Engineering",
+    "Chemical Engineering",
+    "Aerospace/Aviation Engineering",
+    "Biotechnology",
+    "Medicine (MBBS)",
+    "Dental (BDS)",
+    "Pharmacy (B.Pharm)",
+    "Nursing",
+    "Commerce (B.Com)",
+    "Business Administration (BBA)",
+    "Chartered Accountancy (CA)",
+    "Economics",
+    "Psychology",
+    "Law (LLB)",
+    "Architecture (B.Arch)",
+    "Design/Fashion",
+    "Hotel Management",
+    "Pure Sciences (BSc)",
+    "Arts & Humanities (BA)",
+    "Other"
+];
+
+const STATES = [
+    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
+    "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand",
+    "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur",
+    "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab",
+    "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura",
+    "Uttar Pradesh", "Uttarakhand", "West Bengal",
+    "Andaman and Nicobar Islands", "Chandigarh",
+    "Dadra and Nagar Haveli and Daman and Diu", "Delhi",
+    "Jammu and Kashmir", "Ladakh", "Lakshadweep", "Puducherry"
+];
+
 const Recommendations = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
@@ -17,11 +62,12 @@ const Recommendations = () => {
         skills: '',
         experience: '',
         careerGoal: '',
-        country: '',
+        country: 'India',
         state: ''
     });
+
     const [recommendations, setRecommendations] = useState([]);
-    const [selectedPath, setSelectedPath] = useState(null);
+    const [userName, setUserName] = useState('');
 
     useEffect(() => {
         fetchProfile();
@@ -40,6 +86,7 @@ const Recommendations = () => {
             });
 
             const user = response.data;
+            setUserName(user.name || user.email.split('@')[0]); // Fallback to email prefix
 
             // Check if survey is complete (using new fields as indicator)
             if (user.branch && user.domain && user.skills && user.location) {
@@ -51,7 +98,7 @@ const Recommendations = () => {
                     skills: user.skills || '',
                     experience: user.experience || '',
                     careerGoal: user.careerGoal || '',
-                    country: user.location?.country || '',
+                    country: user.location?.country || 'India',
                     state: user.location?.state || ''
                 });
                 fetchRecommendations(); // Auto-fetch if profile exists
@@ -67,7 +114,7 @@ const Recommendations = () => {
                     skills: user.skills || '',
                     experience: user.experience || '',
                     careerGoal: user.careerGoal || '',
-                    country: user.location?.country || '',
+                    country: user.location?.country || 'India',
                     state: user.location?.state || ''
                 }));
                 setView('survey');
@@ -164,15 +211,18 @@ const Recommendations = () => {
                             <div className="form-group-row">
                                 <div className="form-group half">
                                     <label className="form-label">Current Branch / Major</label>
-                                    <input
-                                        type="text"
+                                    <select
                                         name="branch"
                                         value={formData.branch}
                                         onChange={handleInputChange}
-                                        className="form-input"
-                                        placeholder="e.g. Computer Science"
+                                        className="form-select"
                                         required
-                                    />
+                                    >
+                                        <option value="">Select Branch</option>
+                                        {BRANCHES.map(branch => (
+                                            <option key={branch} value={branch}>{branch}</option>
+                                        ))}
+                                    </select>
                                 </div>
                                 <div className="form-group half">
                                     <label className="form-label">Year of Study</label>
@@ -184,10 +234,12 @@ const Recommendations = () => {
                                         required
                                     >
                                         <option value="">Select Year</option>
-                                        <option value="1st Year">1st Year</option>
-                                        <option value="2nd Year">2nd Year</option>
-                                        <option value="3rd Year">3rd Year</option>
-                                        <option value="4th Year">4th Year</option>
+                                        <option value="Intermediate 1st Year">Intermediate 1st Year (11th)</option>
+                                        <option value="Intermediate 2nd Year">Intermediate 2nd Year (12th)</option>
+                                        <option value="1st Year">1st Year (UG)</option>
+                                        <option value="2nd Year">2nd Year (UG)</option>
+                                        <option value="3rd Year">3rd Year (UG)</option>
+                                        <option value="4th Year">4th Year (UG)</option>
                                         <option value="Graduated">Graduated</option>
                                     </select>
                                 </div>
@@ -262,25 +314,29 @@ const Recommendations = () => {
                             <div className="form-group-row">
                                 <div className="form-group half">
                                     <label className="form-label">Preferred Country</label>
-                                    <input
-                                        type="text"
+                                    <select
                                         name="country"
                                         value={formData.country}
-                                        onChange={handleInputChange}
-                                        className="form-input"
-                                        placeholder="e.g. India"
-                                    />
+                                        className="form-select"
+                                        disabled
+                                    >
+                                        <option value="India">India</option>
+                                    </select>
                                 </div>
                                 <div className="form-group half">
                                     <label className="form-label">Preferred State/Region</label>
-                                    <input
-                                        type="text"
+                                    <select
                                         name="state"
                                         value={formData.state}
                                         onChange={handleInputChange}
-                                        className="form-input"
-                                        placeholder="e.g. Karnataka"
-                                    />
+                                        className="form-select"
+                                        required
+                                    >
+                                        <option value="">Select State</option>
+                                        {STATES.map(state => (
+                                            <option key={state} value={state}>{state}</option>
+                                        ))}
+                                    </select>
                                 </div>
                             </div>
 
@@ -313,9 +369,6 @@ const Recommendations = () => {
                                                 <h3 className="rec-title">{rec.title}</h3>
                                                 <span className="match-score">{rec.matchScore} Match</span>
                                             </div>
-                                            <div className="rec-salary">
-                                                <span>💰</span> {rec.salary?.entry || rec.startingSalary} (Entry)
-                                            </div>
                                         </div>
                                         <p className="rec-desc">{rec.reason || rec.description}</p>
 
@@ -334,63 +387,6 @@ const Recommendations = () => {
                                 ))}
                             </div>
                         )}
-                    </div>
-                )}
-
-                {/* Detail Modal */}
-                {selectedPath && (
-                    <div className="modal-overlay" onClick={() => setSelectedPath(null)}>
-                        <div className="modal-content" onClick={e => e.stopPropagation()}>
-                            <button className="close-btn" onClick={() => setSelectedPath(null)}>×</button>
-
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                                <h2 className="modal-h2">{selectedPath.title}</h2>
-                                <span className="match-score large">{selectedPath.matchScore} Match</span>
-                            </div>
-
-                            <p className="rec-desc" style={{ fontSize: '1.1rem' }}>{selectedPath.reason || selectedPath.description}</p>
-
-                            <div className="modal-grid">
-                                <div>
-                                    <div className="modal-section-title">💰 Salary Range (Location Based)</div>
-                                    <ul className="modal-list">
-                                        <li><strong>Entry Level:</strong> {selectedPath.salary?.entry}</li>
-                                        <li><strong>Mid Level:</strong> {selectedPath.salary?.mid}</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <div className="modal-section-title">📊 Market Demand</div>
-                                    <p>{selectedPath.demand}</p>
-                                    <p><strong>Difficulty:</strong> {selectedPath.difficulty} | <strong>Growth:</strong> {selectedPath.futureOutlook}</p>
-                                </div>
-                            </div>
-
-                            <div className="modal-section-title">🛠️ Skills Analysis</div>
-                            <div className="skill-section">
-                                <p><strong>Required:</strong> {selectedPath.skills?.join(', ')}</p>
-                                {selectedPath.missingSkills && selectedPath.missingSkills.length > 0 && (
-                                    <p style={{ color: '#dc2626' }}><strong>To Learn:</strong> {selectedPath.missingSkills.join(', ')}</p>
-                                )}
-                            </div>
-
-                            <div className="modal-section-title">🗺️ Roadmap (Year-wise)</div>
-                            <ul className="modal-list">
-                                {selectedPath.roadmap?.map((step, idx) => (
-                                    <li key={idx}>📍 {step}</li>
-                                ))}
-                            </ul>
-
-                            <div className="modal-section-title">🎓 Certifications & Projects</div>
-                            <ul className="modal-list">
-                                {selectedPath.certifications?.map((cert, idx) => (
-                                    <li key={idx}>📜 {cert}</li>
-                                ))}
-                                {selectedPath.projects?.map((proj, idx) => (
-                                    <li key={idx}>🚀 {proj}</li>
-                                ))}
-                            </ul>
-
-                        </div>
                     </div>
                 )}
             </div>

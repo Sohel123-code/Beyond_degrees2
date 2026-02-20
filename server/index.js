@@ -8,7 +8,8 @@ import axios from 'axios';
 import authRoutes from './routes/authRoutes.js';
 import chatRoutes from './routes/chatRoutes.js';
 import recommendationRoutes from './routes/recommendationRoutes.js';
-
+import { supabase } from './config/supabase.js';
+import { supabase } from './config/supabase.js';
 dotenv.config();
 dotenv.config({ path: 'api/.env' });
 
@@ -157,16 +158,73 @@ const getMergedData = () => {
     }
 };
 
-app.get('/api/concepts', (req, res) => {
+app.get('/api/concepts', async (req, res) => {
     const data = getMergedData();
+
+    // Update career-skills in the list from Supabase
+    const careerSkillsCategory = data.find(c => c.id === 'career-skills');
+    if (careerSkillsCategory) {
+        try {
+            const { data: supabaseSkills, error } = await supabase
+                .from('career skills')
+                .select('*');
+
+            if (!error && supabaseSkills && supabaseSkills.length > 0) {
+                const formattedSupabase = supabaseSkills.map(v => ({
+                    name: v.subcategory || 'Video ' + v.video_number,
+                    link: v.youtube_url,
+                    creator: '',
+                    topic: v.subcategory || '',
+                    videoId: extractVideoId(v.youtube_url),
+                    info: 'YouTube Tutorial'
+                }));
+                careerSkillsCategory.sources = formattedSupabase;
+            }
+        } catch (dbError) {
+            console.error('Supabase fetch error for all concepts:', dbError);
+        }
+    }
+
     res.json(data);
 });
 
-app.get('/api/concepts/:categoryId', (req, res) => {
+app.get('/api/concepts/:categoryId', async (req, res) => {
     const { categoryId } = req.params;
     const data = getMergedData();
 
-    const category = data.find(c => c.id === categoryId);
+    let category = data.find(c => c.id === categoryId);
+
+    if (categoryId === 'career-skills' || categoryId === 'career-skills-v2') {
+        try {
+            const { data: supabaseSkills, error } = await supabase
+                .from('career skills')
+                .select('*');
+
+            if (!error && supabaseSkills && supabaseSkills.length > 0) {
+                const formattedSupabase = supabaseSkills.map(v => ({
+                    name: v.subcategory || 'Video ' + v.video_number,
+                    link: v.youtube_url,
+                    creator: '',
+                    topic: v.subcategory || '',
+                    videoId: extractVideoId(v.youtube_url),
+                    info: 'YouTube Tutorial'
+                }));
+
+                if (category) {
+                    category.sources = formattedSupabase;
+                } else {
+                    category = {
+                        id: 'career-skills',
+                        ...categoriesMetadata['career-skills'],
+                        sources: formattedSupabase
+                    };
+                }
+            }
+        } catch (dbError) {
+            console.error('Supabase fetch error:', dbError);
+            // Fallback to local data which is already in 'category'
+        }
+    }
 
     if (category) {
         res.json(category);
@@ -174,6 +232,7 @@ app.get('/api/concepts/:categoryId', (req, res) => {
         res.status(404).json({ error: 'Category not found' });
     }
 });
+
 
 // GradBuddy Bot Implementation moved to controllers/chatController.js
 
