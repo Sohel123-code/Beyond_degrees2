@@ -32,9 +32,10 @@
 
 @media (max-width: 640px) {
     .floating-buddy {
-        bottom: 20px;
+        bottom: 25px;
         right: 20px;
-        padding: 12px;
+        padding: 10px;
+        transform: scale(0.9);
     }
 
     .buddy-text {

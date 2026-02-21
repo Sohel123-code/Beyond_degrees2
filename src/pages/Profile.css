@@ -20,13 +20,14 @@
 
 @media (max-width: 768px) {
     .profile-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 1.5rem;
     }
 
     .profile-sidebar {
         position: static;
-        top: auto;
+        width: 100%;
     }
 
     .profile-container {
@@ -34,7 +35,12 @@
     }
 
     .profile-card {
-        padding: 1.5rem;
+        padding: 1.25rem;
+        width: 100%;
+    }
+
+    .save-btn {
+        width: 100%;
     }
 }
 
