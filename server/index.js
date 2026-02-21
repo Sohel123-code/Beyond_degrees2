@@ -9,9 +9,7 @@ import authRoutes from './routes/authRoutes.js';
 import chatRoutes from './routes/chatRoutes.js';
 import recommendationRoutes from './routes/recommendationRoutes.js';
 import { supabase } from './config/supabase.js';
-import { supabase } from './config/supabase.js';
 dotenv.config();
-dotenv.config({ path: 'api/.env' });
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

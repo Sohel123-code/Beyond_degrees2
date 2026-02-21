@@ -48,10 +48,10 @@ export const register = async (name, email, password) => {
 
 export const logout = () => {
     localStorage.removeItem('token');
-    localStorage.removeItem('user');
     localStorage.removeItem('user_id');
     localStorage.removeItem('user_name');
     localStorage.removeItem('user_email');
     localStorage.removeItem('user_photo');
+    // Use window.location.href safely or navigate if available in context
     window.location.href = '/login';
 };
