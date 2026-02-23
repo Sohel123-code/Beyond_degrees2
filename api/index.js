@@ -9,6 +9,7 @@ import axios from 'axios';
 import authRoutes from '../server/routes/authRoutes.js';
 import chatRoutes from '../server/routes/chatRoutes.js';
 import recommendationRoutes from '../server/routes/recommendationRoutes.js';
+import interviewRoutes from '../server/routes/interviewRoutes.js';
 import { supabase } from '../server/config/supabase.js';
 
 dotenv.config();
@@ -25,6 +26,7 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 app.use('/auth', authRoutes);
 app.use('/api/recommendations', recommendationRoutes);
+app.use('/api/interview', interviewRoutes);
 app.use('/api', chatRoutes); // Mounts at /api/gradbuddy
 
 // In Vercel, the directory structure might change. we use process.cwd() to get the project root.
@@ -54,11 +56,11 @@ const categoriesMetadata = {
         description: 'Essential skills to accelerate your professional growth.',
         colorHint: '#9370db'
     },
-    'life-skills': {
-        title: 'Life Skills',
-        emoji: '🧠',
-        image: '/assets/concept-hub/life.jpg',
-        description: 'Navigate adult life with confidence and emotional intelligence.',
+    'future-careers': {
+        title: 'Future Careers',
+        emoji: '🚀',
+        image: '/assets/emerging.jpg',
+        description: 'Explore emerging industries and futuristic career opportunities.',
         colorHint: '#40e0d0'
     },
     'real-world': {
@@ -89,7 +91,7 @@ const getMergedData = () => {
         const fileMapping = {
             'money-finance': ['money.json'],
             'career-skills': ['career.json', 'career1.json'],
-            'life-skills': ['life.json'],
+            'future-careers': ['life.json'],
             'real-world': ['real.json'],
             'business-freelancing': ['buisness.json'],
             'offbeat-careers': ['offbeat.json']
