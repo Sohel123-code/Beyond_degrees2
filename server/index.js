@@ -56,11 +56,11 @@ const categoriesMetadata = {
         description: 'Essential skills to accelerate your professional growth.',
         colorHint: '#9370db'
     },
-    'life-skills': {
-        title: 'Life Skills',
-        emoji: '🧠',
-        image: '/assets/concept-hub/life.jpg',
-        description: 'Navigate adult life with confidence and emotional intelligence.',
+    'future-careers': {
+        title: 'Future Careers',
+        emoji: '🚀',
+        image: '/assets/emerging.jpg',
+        description: 'Explore emerging industries and futuristic career opportunities.',
         colorHint: '#40e0d0'
     },
     'real-world': {
@@ -91,7 +91,7 @@ const getMergedData = () => {
         const fileMapping = {
             'money-finance': ['money.json'],
             'career-skills': ['career.json', 'career1.json'],
-            'life-skills': ['life.json'],
+            'future-careers': ['life.json'],
             'real-world': ['real.json'],
             'business-freelancing': ['buisness.json'],
             'offbeat-careers': ['offbeat.json']

@@ -11,14 +11,14 @@ const CareerPathsHome = () => {
 
       <header className="cpHero">
         <div className="container">
-          <h1 className="cpHero__title">Career Paths</h1>
-          <p className="cpHero__sub">Choose your stream to explore careers beyond traditional options.</p>
+          <h1 className="cpHero__title text-reveal">Career Paths</h1>
+          <p className="cpHero__sub reveal">Choose your stream to explore careers beyond traditional options.</p>
         </div>
       </header>
 
       <main className="cpMain">
         <div className="container">
-          <div className="cpGrid">
+          <div className="cpGrid stagger-grid">
             {STREAMS.map((s) => (
               <Link key={s.key} className="cpStream" to={`/career-paths/${s.key}`}>
                 <div className="cpStream__imgWrap">

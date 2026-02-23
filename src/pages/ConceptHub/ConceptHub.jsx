@@ -38,11 +38,11 @@ const ConceptHub = () => {
                         colorHint: '#9370db'
                     },
                     {
-                        id: 'life-skills',
-                        title: 'Life Skills',
-                        emoji: '🧠',
-                        image: '/assets/concept-hub/life.jpg',
-                        description: 'Navigate adult life with confidence and emotional intelligence.',
+                        id: 'future-careers',
+                        title: 'Future Careers',
+                        emoji: '🚀',
+                        image: '/assets/emerging.jpg',
+                        description: 'Explore emerging industries and futuristic career opportunities.',
                         colorHint: '#40e0d0'
                     },
                     {
@@ -84,8 +84,8 @@ const ConceptHub = () => {
 
             <header className="hub-hero">
                 <div className="container">
-                    <h1 className="hub-hero__title">Concept Hub</h1>
-                    <p className="hub-hero__subtitle">
+                    <h1 className="hub-hero__title text-reveal">Concept Hub</h1>
+                    <p className="hub-hero__subtitle reveal">
                         Structured learning for the skills they didn't teach you in school.
                     </p>
                 </div>
@@ -96,7 +96,7 @@ const ConceptHub = () => {
                     {loading ? (
                         <div className="loading-state">Loading categories...</div>
                     ) : (
-                        <div className="categories-grid">
+                        <div className="categories-grid stagger-grid">
                             {categories.map((category) => (
                                 <Link
                                     key={category.id}

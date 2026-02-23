@@ -203,9 +203,9 @@ const Recommendations = () => {
 
             <div className="recommendations-container">
                 {view === 'survey' ? (
-                    <div className="survey-card">
-                        <h1 className="survey-h1">Career Discovery Survey</h1>
-                        <p className="survey-subtitle">Tell us about yourself to get personalized career paths.</p>
+                    <div className="survey-card reveal">
+                        <h1 className="survey-h1 text-reveal">Career Discovery Survey</h1>
+                        <p className="survey-subtitle reveal">Tell us about yourself to get personalized career paths.</p>
 
                         <form onSubmit={handleSurveySubmit}>
                             <div className="form-group-row">
@@ -347,8 +347,8 @@ const Recommendations = () => {
                     </div>
                 ) : (
                     <div>
-                        <div className="page-header">
-                            <h1 className="page-title">Career Advice</h1>
+                        <div className="page-header reveal">
+                            <h1 className="page-title text-reveal">Career Advice</h1>
                             <button onClick={handleRetakeSurvey} className="retake-btn">
                                 ↺ Update Survey
                             </button>
@@ -361,7 +361,7 @@ const Recommendations = () => {
                                 <p>Evaluating skills, market trends, and location data...</p>
                             </div>
                         ) : (
-                            <div className="recommendations-grid">
+                            <div className="recommendations-grid stagger-grid">
                                 {recommendations.map((rec, index) => (
                                     <div key={index} className="rec-card" onClick={() => navigate(`/career-advice/${encodeURIComponent(rec.title)}`)}>
                                         <div className="rec-header">

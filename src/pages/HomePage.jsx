@@ -46,27 +46,28 @@ const HomePage = () => {
       <header className="hero" id="home">
         <div className="container hero__grid">
           <div className="hero__left">
-            <h1 className="hero__title">
+            <h1 className="hero__title text-reveal">
               Unlock Your Career <br />
               Potential Beyond the <br />
               Degree
             </h1>
-            <p className="hero__subtitle">
+            <p className="hero__subtitle reveal">
               Guidance, Skills &amp; Inspiration for Life After Graduation.
             </p>
-            <div className="hero__actions">
-              <a className="btn btn--primary" href="#get-started">Get Started</a>
+            <div className="hero__actions reveal">
+              <a className="btn btn--primary btn-pulse" href="#get-started">Get Started</a>
               <a className="btn btn--secondary" href="#learn-more">Learn More</a>
             </div>
           </div>
 
           <div className="hero__right" aria-hidden="true">
-            <div className="hero__illustration">
+            <div className="hero__illustration reveal">
               <img
-                className="hero__img"
-                src="/assets/i1.jpg"
+                className="hero__img parallax"
+                src="/assets/n1.webp"
                 alt=""
                 loading="eager"
+                data-speed="0.05"
               />
             </div>
           </div>
@@ -75,7 +76,7 @@ const HomePage = () => {
 
       <section className="features" id="learn-more">
         <div className="container">
-          <div className="features__grid">
+          <div className="features__grid stagger-grid">
             <div className="card card--feature">
               <div className="card__icon card__icon--blue" aria-hidden="true">
                 <span>⏱</span>
@@ -111,15 +112,15 @@ const HomePage = () => {
 
       <section className="resources" id="resources">
         <div className="container">
-          <div className="sectionHead">
-            <h2 className="sectionHead__title">Explore Our Resources</h2>
+          <div className="sectionHead reveal">
+            <h2 className="sectionHead__title text-reveal">Explore Our Resources</h2>
             <p className="sectionHead__sub">Tools and tips to help you on your journey</p>
           </div>
 
-          <div className="resources__grid">
+          <div className="resources__grid stagger-grid">
             <article className="card card--resource">
               <div className="card__media">
-                <img className="card__mediaImg" src="/assets/m1.jpg" alt="" loading="lazy" />
+                <img className="card__mediaImg" src="/assets/n2.jpg" alt="" loading="lazy" />
               </div>
               <div className="card__body">
                 <h3 className="card__title">Career Paths Explorer</h3>
@@ -135,7 +136,7 @@ const HomePage = () => {
 
             <article className="card card--resource">
               <div className="card__media">
-                <img className="card__mediaImg" src="/assets/m3.jpg" alt="" loading="lazy" />
+                <img className="card__mediaImg" src="/assets/n3.jpg" alt="" loading="lazy" />
               </div>
               <div className="card__body">
                 <h3 className="card__title">Resume &amp; Cover Letters</h3>
@@ -151,7 +152,7 @@ const HomePage = () => {
 
             <article className="card card--resource">
               <div className="card__media">
-                <img className="card__mediaImg" src="/assets/m4.jpg" alt="" loading="lazy" />
+                <img className="card__mediaImg" src="/assets/n4.jpg" alt="" loading="lazy" />
               </div>
               <div className="card__body">
                 <h3 className="card__title">Interview Preparation</h3>
@@ -186,8 +187,8 @@ const HomePage = () => {
 
       <section className="newsletter" id="get-started">
         <div className="container newsletter__inner">
-          <div className="newsletter__head">
-            <h2 className="newsletter__title">Join Our Community of Ambitious Graduates</h2>
+          <div className="newsletter__head reveal">
+            <h2 className="newsletter__title text-reveal">Join Our Community of Ambitious Graduates</h2>
             <p className="newsletter__sub">Get the latest career tips and updates</p>
           </div>
 
@@ -215,7 +216,7 @@ const HomePage = () => {
               disabled={status === 'sending' || status === 'success'}
             />
             <button
-              className={`btn btn--primary newsletter__btn ${status === 'success' ? 'btn--success' : ''}`}
+              className={`btn btn--primary newsletter__btn btn-pulse ${status === 'success' ? 'btn--success' : ''}`}
               type="submit"
             >
               {status === 'sending' ? 'Joining...' : status === 'success' ? 'Joined!' : 'Join Our Community'}

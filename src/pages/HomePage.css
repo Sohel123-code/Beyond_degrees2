@@ -89,12 +89,9 @@
 
 .hero__illustration {
   width: 100%;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #e0f2fe 0%, #f1f5f9 100%);
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
   padding: 0;
-  overflow: hidden;
+  overflow: visible;
+  /* allow shadow to show */
   position: relative;
   animation: float 6s ease-in-out infinite;
 }
@@ -115,8 +112,11 @@
   height: auto;
   min-height: 400px;
   max-height: 550px;
-  object-fit: contain;
-  border-radius: 12px;
+  object-fit: cover;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #e0f2fe 0%, #f1f5f9 100%);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
   display: block;
   mix-blend-mode: multiply;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.05));

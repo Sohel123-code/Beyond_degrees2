@@ -8,17 +8,27 @@ import ConceptHub from './pages/ConceptHub/ConceptHub';
 import ConceptCategory from './pages/ConceptHub/ConceptCategory';
 import GradBuddy from './pages/GradBuddy/GradBuddy';
 import FloatingBuddy from './components/FloatingBuddy';
-import IntroVideo from './components/IntroVideo';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Recommendations from './pages/Recommendations/Recommendations';
 import CareerAdviceDetail from './pages/Recommendations/CareerDetail';
 import ProtectedRoute from './components/ProtectedRoute';
+import useAnimations from './hooks/useAnimations';
 import './App.css';
 
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 function App() {
+  const location = useLocation();
+  const { initAnimations, animatePageIn } = useAnimations();
+
+  useEffect(() => {
+    animatePageIn();
+    initAnimations(); // Re-scan for elements on new page
+    window.scrollTo(0, 0);
+  }, [location.pathname, initAnimations, animatePageIn]);
+
   useEffect(() => {
     const handleMouseMove = (e) => {
       document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
@@ -31,7 +41,6 @@ function App() {
 
   return (
     <div className="App">
-      <IntroVideo />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<HomePage />} />
