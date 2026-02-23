@@ -177,4 +177,20 @@
   .nav__right {
     gap: 8px;
   }
+
+  .nav__right .nav__link {
+    display: none !important;
+  }
+
+  .nav__right img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .nav__right div[style*="background: rgb(226, 232, 240)"] {
+    /* fallback circle */
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1rem !important;
+  }
 }

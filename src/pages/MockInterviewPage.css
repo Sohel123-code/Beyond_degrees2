@@ -691,21 +691,128 @@
     transform: translateY(-2px);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
     .selection-grid {
         grid-template-columns: 1fr;
+        padding: 30px 24px;
+        gap: 30px;
+    }
+
+    .results-main-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .view-title {
         font-size: 38px;
     }
 
-    .question-card,
-    .results-view {
-        padding: 40px 30px;
+    .view-subtitle {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .interview-container {
+        margin-top: 20px;
+    }
+
+    .interview-nav {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .timer-box {
+        align-items: flex-start;
+        width: 100%;
+        padding-top: 15px;
+        border-top: 1px solid #f1f5f9;
+    }
+
+    .question-card {
+        padding: 30px 24px;
     }
 
     .question-text {
-        font-size: 28px;
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+
+    .option-box {
+        padding: 18px 20px;
+        gap: 16px;
+    }
+
+    .value-text {
+        font-size: 16px;
+    }
+
+    .results-view {
+        padding: 40px 20px;
+    }
+
+    .score-percent {
+        font-size: 72px;
+    }
+
+    .final-score-box {
+        padding: 40px 20px;
+    }
+
+    .review-card {
+        padding: 24px;
+    }
+
+    .review-question {
+        font-size: 18px;
+    }
+
+    .stat-label {
+        width: 100px;
+        font-size: 11px;
+    }
+
+    .results-summary h1 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .view-title {
+        font-size: 32px;
+    }
+
+    .main-start-btn {
+        width: 100%;
+        padding: 18px 30px;
+        font-size: 18px;
+    }
+
+    .results-footer {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .restart-btn,
+    .home-btn {
+        width: 100%;
+    }
+
+    .progress-info {
+        max-width: 100%;
+    }
+
+    .question-text {
+        font-size: 22px;
+    }
+
+    .key-circle {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+        min-width: 36px;
     }
 }

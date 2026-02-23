@@ -452,6 +452,12 @@
   }
 }
 
+@media (max-width: 400px) {
+  .hero__title {
+    font-size: 28px;
+  }
+}
+
 @media (max-width: 480px) {
   .container {
     width: calc(100% - 32px);
