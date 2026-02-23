@@ -57,7 +57,7 @@ const MockInterviewPage = () => {
         window.scrollTo(0, 0);
 
         try {
-            const response = await axios.post('http://localhost:5000/api/interview/generate', { role: selectedRole });
+            const response = await axios.post('/api/interview/generate', { role: selectedRole });
             setQuestions(response.data.questions);
             setStep('interview');
             setCurrentQuestionIndex(0);
