@@ -175,6 +175,16 @@ const Profile = () => {
                                 />
                                 <small className="upload-hint">Max 500KB</small>
                             </div>
+
+                            <div style={{ marginTop: '20px', width: '100%' }}>
+                                <button
+                                    onClick={() => navigate('/recommendations')}
+                                    className="btn btn--primary"
+                                    style={{ width: '100%', fontSize: '0.9rem', padding: '12px' }}
+                                >
+                                    ↺ Update Career Survey
+                                </button>
+                            </div>
                         </div>
                     </aside>
 

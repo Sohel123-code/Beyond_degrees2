@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import SiteNavbar from '../../shared/SiteNavbar';
+import useAnimations from '../../hooks/useAnimations';
 import './Recommendations.css';
 
 const BRANCHES = [
@@ -68,6 +69,11 @@ const Recommendations = () => {
 
     const [recommendations, setRecommendations] = useState([]);
     const [userName, setUserName] = useState('');
+    const { initAnimations } = useAnimations();
+
+    useEffect(() => {
+        initAnimations();
+    }, [view, recommendations, analyzing, initAnimations]);
 
     useEffect(() => {
         fetchProfile();
@@ -362,8 +368,8 @@ const Recommendations = () => {
                             </div>
                         ) : (
                             <div className="recommendations-grid stagger-grid">
-                                {recommendations.map((rec, index) => (
-                                    <div key={index} className="rec-card" onClick={() => navigate(`/career-advice/${encodeURIComponent(rec.title)}`)}>
+                                {recommendations.length > 0 ? recommendations.map((rec, index) => (
+                                    <div key={index} className="rec-card stagger-item" onClick={() => navigate(`/career-advice/${encodeURIComponent(rec.title)}`)}>
                                         <div className="rec-header">
                                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                 <h3 className="rec-title">{rec.title}</h3>
@@ -384,7 +390,12 @@ const Recommendations = () => {
                                             {(rec.skills || rec.occupations || []).length > 3 && <span className="rec-tag">+{(rec.skills || rec.occupations).length - 3} more</span>}
                                         </div>
                                     </div>
-                                ))}
+                                )) : (
+                                    <div className="no-recommendations reveal">
+                                        <h3>No recommendations found</h3>
+                                        <p>Please try updating your survey with more details.</p>
+                                    </div>
+                                )}
                             </div>
                         )}
                     </div>
