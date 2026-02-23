@@ -7,6 +7,7 @@ import CareerDetail from './pages/CareerPaths/CareerDetail';
 import ConceptHub from './pages/ConceptHub/ConceptHub';
 import ConceptCategory from './pages/ConceptHub/ConceptCategory';
 import GradBuddy from './pages/GradBuddy/GradBuddy';
+import MockInterviewPage from './pages/MockInterviewPage';
 import FloatingBuddy from './components/FloatingBuddy';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
@@ -89,6 +90,11 @@ function App() {
         <Route path="/career-advice/:careerTitle" element={
           <ProtectedRoute>
             <CareerAdviceDetail />
+          </ProtectedRoute>
+        } />
+        <Route path="/mock-interview" element={
+          <ProtectedRoute>
+            <MockInterviewPage />
           </ProtectedRoute>
         } />
 

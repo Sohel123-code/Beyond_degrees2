@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SiteNavbar from '../shared/SiteNavbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import './HomePage.css';
 
@@ -9,30 +9,29 @@ const HomePage = () => {
   const [submittedName, setSubmittedName] = useState('');
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmittedName(name);
     setStatus('sending');
 
-    // EmailJS Configuration (User provided snippet style)
+    // EmailJS Configuration
     emailjs.sendForm(
-      'BEYOND-DEGREES',        // Service ID
-      'template_zutecjv',      // Template ID (Using previous ID provided by user)
-      e.target,                // Form element
-      'YOUR_PUBLIC_KEY'        // Public Key (Placeholder)
+      'BEYOND-DEGREES',
+      'template_zutecjv',
+      e.target,
+      'YOUR_PUBLIC_KEY'
     )
       .then(() => {
         setStatus('success');
         setSubmittedName(name);
         setName('');
         setEmail('');
-        // Reset status after a few seconds to allow multiple clicks as requested
         setTimeout(() => setStatus(''), 5000);
       })
       .catch((error) => {
         console.error(error);
-        // Removed error message display as per user request
         setStatus('');
         setName('');
         setEmail('');
@@ -160,9 +159,12 @@ const HomePage = () => {
                   Ace your next interview with confidence. Learn how to answer
                   tough questions and present your best self to potential employers.
                 </p>
-                <a href="#resources" className="btn btn--primary btn--small card__btn">
+                <button
+                  onClick={() => navigate('/mock-interview')}
+                  className="btn btn--primary btn--small card__btn"
+                >
                   Start Prep
-                </a>
+                </button>
               </div>
             </article>
 
@@ -234,4 +236,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-

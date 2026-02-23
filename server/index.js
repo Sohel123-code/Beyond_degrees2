@@ -8,6 +8,7 @@ import axios from 'axios';
 import authRoutes from './routes/authRoutes.js';
 import chatRoutes from './routes/chatRoutes.js';
 import recommendationRoutes from './routes/recommendationRoutes.js';
+import interviewRoutes from './routes/interviewRoutes.js';
 import { supabase } from './config/supabase.js';
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.use((req, res, next) => {
 
 app.use('/auth', authRoutes);
 app.use('/api/recommendations', recommendationRoutes);
+app.use('/api/interview', interviewRoutes);
 app.use('/api', chatRoutes); // Mounts at /api/gradbuddy
 
 const DATA_PATH = path.join(process.cwd(), 'src/data');
